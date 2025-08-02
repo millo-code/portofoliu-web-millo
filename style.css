@@ -1,129 +1,134 @@
-/* Stiluri generale și resetare */
+/* Stiluri de bază */
 :root {
-  --primary-color: #007bff;
-  --secondary-color: #6c757d;
-  --background-color: #f8f9fa;
-  --card-background-color: #ffffff;
-  --text-color: #343a40;
-  --header-color: #212529;
-  --border-color: #dee2e6;
-  --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  --error-color: #dc3545;
-}
-
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+  --primary-color: #007BFF;
+  --text-color: #333;
+  --bg-color: #f4f4f4;
+  --shadow-color: rgba(0, 0, 0, 0.1);
+  --dark-bg: #1a1a1a;
+  --dark-text: #f4f4f4;
+  --card-bg: #fff;
 }
 
 html {
-  scroll-behavior: smooth;
+    scroll-behavior: auto;
 }
 
 body {
+  /* Scoate complet funcționalitatea de derulare */
+  overflow: hidden;
+
   font-family: 'Montserrat', sans-serif;
-  line-height: 1.6;
-  background-color: var(--background-color);
+  margin: 0;
+  padding: 0;
+  background-color: var(--bg-color);
   color: var(--text-color);
-  transition: background-color 0.3s, color 0.3s;
+  transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out;
 }
 
-/* Stiluri pentru loader */
+/* Modul Întunecat */
+body.dark-mode {
+  background-color: var(--dark-bg);
+  color: var(--dark-text);
+}
+
+body.dark-mode nav.navbar, body.dark-mode .menu {
+  background-color: #222;
+}
+
+body.dark-mode .testimonial-card {
+  background-color: #333;
+  color: var(--dark-text);
+  box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
+}
+
+body.dark-mode .blog-post {
+  background-color: #333;
+  box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
+}
+
+body.dark-mode .blog-post h3, body.dark-mode .blog-post p {
+  color: var(--dark-text);
+}
+
+body.dark-mode footer {
+  background-color: #222;
+}
+
+body.dark-mode input, body.dark-mode textarea, body.dark-mode select {
+  background-color: #333;
+  color: var(--dark-text);
+  border: 1px solid #555;
+}
+
+body.dark-mode .form-group span.error-message {
+  color: #ff6b6b;
+}
+
+/* Loader de Încărcare */
 #loader-wrapper {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: var(--background-color);
-  z-index: 1000;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  opacity: 1;
-  transition: opacity 0.5s ease-out;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #111;
+    transition: opacity .5s ease-out;
+    opacity: 1;
 }
 
 #loader {
-  border: 8px solid var(--border-color);
-  border-top: 8px solid var(--primary-color);
-  border-radius: 50%;
-  width: 60px;
-  height: 60px;
-  animation: spin 1s linear infinite;
+    display: inline-block;
+    width: 60px;
+    height: 60px;
+    border: 5px solid #fff;
+    border-radius: 50%;
+    border-top-color: var(--primary-color);
+    animation: spin 1s ease-in-out infinite;
 }
 
 @keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+    to {
+        -webkit-transform: rotate(360deg);
+    }
 }
 
 /* Stiluri pentru Navbar */
 .navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem 2rem;
-  background-color: var(--card-background-color);
-  box-shadow: var(--box-shadow);
-  position: sticky;
-  top: 0;
-  z-index: 999;
+  padding: 1rem 5%;
+  background-color: var(--bg-color);
+  box-shadow: 0 2px 4px var(--shadow-color);
+  z-index: 10;
+  transition: background-color 0.5s ease-in-out;
+  height: 80px;
 }
 
-.navbar .logo {
-  font-size: 1.5rem;
-  font-weight: 600;
-  color: var(--header-color);
+/* Stiluri pentru logo-ul text */
+.logo-link {
+    display: flex;
+    align-items: center;
+    font-size: 1.5rem;
+    font-weight: 700;
+    text-decoration: none;
+    color: var(--text-color);
+    opacity: 0;
+    animation: fadeIn 1s forwards;
+    animation-delay: 1s;
+    transition: color 0.3s ease;
 }
 
-.navbar .menu {
-  list-style: none;
-  display: flex;
-  align-items: center;
-}
-
-.navbar .menu li {
-  margin-left: 1.5rem;
-  position: relative;
-}
-
-.navbar .menu a {
-  text-decoration: none;
-  color: var(--text-color);
-  font-weight: 400;
-  padding: 0.5rem 0;
-  display: block;
-}
-
-.navbar .menu a:hover {
+.logo-link:hover {
   color: var(--primary-color);
-}
-
-.dropdown-content {
-  display: none;
-  position: absolute;
-  top: 100%;
-  left: 0;
-  background-color: var(--card-background-color);
-  box-shadow: var(--box-shadow);
-  min-width: 150px;
-  border-radius: 5px;
-  z-index: 1;
-}
-
-.dropdown:hover .dropdown-content {
-  display: block;
-}
-
-.dropdown-content li {
-  margin: 0;
-}
-
-.dropdown-content a {
-  padding: 10px 15px;
-  cursor: pointer;
 }
 
 .hamburger {
@@ -131,18 +136,44 @@ body {
   font-size: 2rem;
   background: none;
   border: none;
-  color: var(--text-color);
   cursor: pointer;
+  color: var(--text-color);
 }
 
-/* Stiluri pentru Comutator (Toggle Switch) */
+.menu {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.menu li {
+  margin-left: 2rem;
+  position: relative;
+}
+
+.menu a {
+  text-decoration: none;
+  color: var(--text-color);
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.menu a:hover {
+  color: var(--primary-color);
+}
+
+.menu a i {
+    margin-right: 8px;
+}
+
+/* Switch pentru Dark Mode */
 .switch {
   position: relative;
   display: inline-block;
-  width: 60px;
-  height: 34px;
+  width: 40px;
+  height: 20px;
   margin-left: 1rem;
-  cursor: pointer;
 }
 
 .switch input {
@@ -153,24 +184,25 @@ body {
 
 .slider {
   position: absolute;
+  cursor: pointer;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: var(--secondary-color);
-  transition: 0.4s;
-  border-radius: 34px;
+  background-color: #ccc;
+  transition: .4s;
+  border-radius: 20px;
 }
 
 .slider:before {
   position: absolute;
   content: "";
-  height: 26px;
-  width: 26px;
-  left: 4px;
-  bottom: 4px;
+  height: 16px;
+  width: 16px;
+  left: 2px;
+  bottom: 2px;
   background-color: white;
-  transition: 0.4s;
+  transition: .4s;
   border-radius: 50%;
 }
 
@@ -179,474 +211,516 @@ input:checked + .slider {
 }
 
 input:checked + .slider:before {
-  transform: translateX(26px);
+  transform: translateX(20px);
 }
 
-/* Stiluri pentru secțiuni */
-section {
-  padding: 4rem 2rem;
-  max-width: 1200px;
-  margin: auto;
+/* Stiluri pentru Main și secțiuni */
+main {
+  padding-top: 60px;
 }
 
-h2 {
+main section {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem 5%;
+  color: white;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
   text-align: center;
-  margin-bottom: 2rem;
+  transition: background-color 0.5s ease-in-out;
+}
+
+#acasa {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('background.webp');
+}
+
+/* Stiluri noi pentru secțiunea Contact */
+#contact {
+    background-color: #f4f4f4;
+    background-image: none;
+    color: var(--dark-bg);
+    padding: 4rem 5%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#contact h2 {
+    color: var(--text-color);
+}
+
+#contact p {
+    color: var(--text-color);
+}
+
+/* Fundaluri simple și curate pentru secțiunile de servicii */
+#despre {
+    background-color: #111;
+    color: white;
+    background-image: none;
+}
+
+/* Stiluri noi pentru fundalul secțiunii "Servicii" */
+#servicii {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('copilot.webp');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  padding: 4rem 5%;
+}
+
+#web, #seo, #consultanta {
+    background-color: #1a1a1a;
+    background-image: none;
+    color: #ffffff; 
+    padding: 4rem 5%;
+}
+
+/* Stiluri pentru conținutul secțiunilor */
+h2 {
   font-size: 2.5rem;
-  color: var(--header-color);
-}
-
-/* Stiluri pentru carduri (proiecte) */
-.cards {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2rem;
-}
-
-.card {
-  background-color: var(--card-background-color);
-  padding: 2rem;
-  border-radius: 10px;
-  box-shadow: var(--box-shadow);
-  transition: transform 0.3s ease-in-out;
-}
-
-.card:hover {
-  transform: translateY(-10px);
-}
-
-.card h3 {
   margin-bottom: 1rem;
+}
+
+p {
+  max-width: 800px;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+.cta-button {
+  display: inline-block;
+  padding: 0.8rem 2rem;
+  background-color: var(--primary-color);
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  border-radius: 5px;
+  margin-top: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+.cta-button:hover {
+  background-color: #0056b3;
+}
+
+.benefits-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+  width: 100%;
+}
+
+.benefit-item {
+  background-color: rgba(0, 0, 0, 0.3);
+  padding: 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.benefit-item i {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
   color: var(--primary-color);
 }
 
-/* Stiluri pentru formularul de contact */
-form {
-  display: flex;
-  flex-direction: column;
-  max-width: 600px;
-  margin: 2rem auto;
-  background-color: var(--card-background-color);
-  padding: 2rem;
-  border-radius: 10px;
-  box-shadow: var(--box-shadow);
+.blog-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+  width: 100%;
 }
 
-form label {
-  margin-top: 1rem;
+.blog-post {
+  background-color: var(--card-bg);
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px var(--shadow-color);
+  transition: transform 0.3s ease;
+  text-align: left;
+  padding: 1.5rem;
+}
+
+.blog-post:hover {
+  transform: translateY(-5px);
+}
+
+.blog-post img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+}
+
+.blog-post h3 {
+  font-size: 1.5rem;
+  color: var(--text-color);
+  margin: 0.5rem 0;
+}
+
+.blog-post small {
+  display: block;
+  color: #666;
+  margin-bottom: 1rem;
+}
+
+.blog-post p {
+  color: #555;
+  margin-bottom: 1.5rem;
+}
+
+.blog-post a {
+  color: var(--primary-color);
+  text-decoration: none;
   font-weight: 600;
 }
 
-form input, form textarea, form select {
+.testimoniale-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
   width: 100%;
-  padding: 0.75rem;
-  margin-top: 0.5rem;
-  border: 1px solid var(--border-color);
-  border-radius: 5px;
-  font-family: 'Montserrat', sans-serif;
-  transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-form input:focus, form textarea:focus, form select:focus {
-  outline: none;
-  border-color: var(--primary-color);
-  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+.testimonial-card {
+  background-color: var(--card-bg);
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px var(--shadow-color);
+  text-align: left;
+  transition: transform 0.3s ease;
+}
+
+.testimonial-card:hover {
+  transform: translateY(-5px);
+}
+
+.testimonial-card p {
+  font-style: italic;
+  margin-bottom: 1rem;
+  color: #555;
+}
+
+.testimonial-card h4 {
+  margin: 0;
+  font-size: 1.2rem;
+  color: var(--text-color);
+}
+
+.testimonial-card small {
+  color: var(--primary-color);
+  display: block;
+}
+
+/* Stiluri pentru formular */
+form {
+  max-width: 600px;
+  width: 100%;
+  margin: 2rem auto;
+  padding: 2rem;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px var(--shadow-color);
+  text-align: left;
+  backdrop-filter: none;
+  border: 1px solid #ccc;
+  color: var(--text-color);
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+.form-group {
+  margin-bottom: 1rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  color: var(--text-color);
+}
+
+.form-group input, .form-group textarea, .form-group select {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+  font-family: 'Montserrat', sans-serif;
+  background-color: #f9f9f9;
+  color: var(--text-color);
+}
+
+.form-group textarea {
+  height: 100px;
+  resize: vertical;
+}
+
+.form-group:nth-child(4) {
+    grid-column: 1 / -1;
 }
 
 form button {
-  margin-top: 1.5rem;
-  padding: 0.75rem;
+  width: 100%;
+  padding: 1rem;
   background-color: var(--primary-color);
   color: white;
   border: none;
   border-radius: 5px;
+  font-size: 1rem;
   cursor: pointer;
   transition: background-color 0.3s ease;
+  margin-top: 1rem;
 }
 
 form button:hover {
   background-color: #0056b3;
 }
 
-/* Stiluri pentru validare */
-.form-group {
-  position: relative;
-}
-
-.form-group input.invalid,
-.form-group textarea.invalid {
-  border-color: var(--error-color);
-}
-
-.form-group .error-message {
-  color: var(--error-color);
+.form-group span.error-message {
+  color: #ff4d4d;
   font-size: 0.8rem;
-  margin-top: 0.25rem;
-  display: none;
-}
-
-.form-group input.invalid ~ .error-message,
-.form-group textarea.invalid ~ .error-message {
   display: block;
+  margin-top: 0.2rem;
+  visibility: hidden;
 }
 
+.form-group.error input, .form-group.error textarea {
+  border-color: #ff4d4d;
+}
+
+.form-group.error span.error-message {
+  visibility: visible;
+}
 
 /* Stiluri pentru footer */
 footer {
-  text-align: center;
-  padding: 2rem;
-  background-color: var(--card-background-color);
-  color: var(--secondary-color);
-}
-
-/* Stiluri pentru butonul back to top */
-#backToTop {
-  display: none;
-  position: fixed;
-  bottom: 2rem;
-  right: 2rem;
-  z-index: 99;
-  width: 50px;
-  height: 50px;
-  background-color: var(--primary-color);
+  padding: 1rem 5%;
+  background-color: #111;
   color: white;
-  border: none;
-  border-radius: 50%;
-  font-size: 1.8rem;
-  line-height: 50px;
   text-align: center;
-  cursor: pointer;
-  box-shadow: var(--box-shadow);
-  transition: all 0.3s ease-in-out;
-  opacity: 0;
-  transform: scale(0.9);
+  margin-top: auto;
 }
 
-#backToTop.show {
-  opacity: 1;
-  transform: scale(1);
-  display: block;
-}
-
-#backToTop:hover {
-  background-color: #0056b3;
-  transform: scale(1.1);
-}
-
-/* Stiluri pentru animații fluide */
+/* Animații */
 .hidden {
   opacity: 0;
+  filter: blur(5px);
   transform: translateY(20px);
-  transition: opacity 0.8s ease-in-out, transform 0.8s ease-in-out;
+  transition: opacity 0.6s ease-in-out, filter 0.6s ease-in-out, transform 0.6s ease-in-out;
 }
 
 .visible {
   opacity: 1;
+  filter: blur(0);
   transform: translateY(0);
 }
 
-/* Stiluri pentru Dark Mode */
-body.dark-mode {
-  --background-color: #121212;
-  --card-background-color: #1e1e1e;
-  --text-color: #f1f1f1;
-  --header-color: #ffffff;
-  --border-color: #333333;
-}
-
-body.dark-mode .navbar {
-  box-shadow: 0 4px 6px rgba(255, 255, 255, 0.1);
-}
-
-body.dark-mode .card, body.dark-mode form {
-  box-shadow: 0 4px 6px rgba(255, 255, 255, 0.1);
-}
-
-body.dark-mode .slider {
-  background-color: #555;
-}
-
-body.dark-mode input:checked + .slider {
-  background-color: #2196F3;
-}
-
-/* Media Queries pentru a face site-ul responsive */
-@media (max-width: 768px) {
-  .navbar .menu {
-    display: none;
-    flex-direction: column;
-    width: 100%;
-    position: absolute;
-    top: 60px;
-    left: 0;
-    background-color: var(--card-background-color);
-    box-shadow: var(--box-shadow);
+@keyframes fadeIn {
+  to {
+    opacity: 1;
   }
+}
 
-  .navbar .menu.active {
+/* Stiluri noi pentru secțiunile de servicii */
+.service-content {
     display: flex;
-  }
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 4rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
 
-  .navbar .menu li {
-    margin: 0;
+.service-text {
+    flex: 1;
+    min-width: 300px;
+    text-align: left;
+}
+
+.service-text ul {
+    list-style: none;
+    padding: 0;
+    margin: 1rem 0;
+}
+
+.service-text ul li {
+    margin-bottom: 0.5rem;
+}
+
+.service-image {
+    flex: 1;
+    min-width: 300px;
+}
+
+.service-image img {
     width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+}
+
+#web .service-image img {
+    border: 3px solid var(--primary-color);
+    box-shadow: 0 0 20px rgba(0, 123, 255, 0.5);
+}
+
+#seo .service-image img {
+    border: 3px solid #f6b432;
+    box-shadow: 0 0 20px #f6b432;
+}
+
+#consultanta .service-image img {
+    border: 3px solid #e74c3c;
+    box-shadow: 0 0 20px rgba(231, 76, 60, 0.5);
+}
+
+.seo-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.seo-item {
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
     text-align: center;
-    border-bottom: 1px solid var(--border-color);
-  }
-  
-  .navbar .menu li:last-child {
-    border-bottom: none;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.seo-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.4);
+}
+
+.seo-item i {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+#seo .seo-item i {
+    color: #f6b432;
+}
+
+
+.seo-item h3 {
+    margin: 0;
+    font-size: 1.2rem;
+}
+
+.consultanta-list {
+    list-style: none;
+    padding: 0;
+}
+
+.consultanta-list li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    text-align: left;
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.consultanta-list li:hover {
+    transform: translateX(10px);
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.consultanta-list li i {
+    font-size: 1.5rem;
+    color: #e74c3c;
+    margin-right: 1rem;
+    width: 30px;
+    text-align: center;
+}
+
+/* Media Queries pentru mobil */
+@media (max-width: 768px) {
+  .navbar {
+    flex-wrap: wrap;
+    padding: 1rem 3%;
   }
 
-  .dropdown-content {
-    position: static;
-    box-shadow: none;
-    text-align: center;
-  }
-
-  .dropdown:hover .dropdown-content {
-    display: block;
+  .logo {
+    flex-grow: 1;
   }
 
   .hamburger {
     display: block;
+    order: 2;
   }
 
-  h2 {
-    font-size: 2rem;
-  }
-}
-
-/* Stiluri pentru secțiunea Acasa (Hero) */
-#acasa {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('background.jpg');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    color: white;
-    min-height: 80vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    padding: 4rem 2rem;
-}
-
-#acasa h2 {
-    font-size: 3rem;
-    margin-bottom: 1rem;
-    color: white;
-}
-
-#acasa p {
-    font-size: 1.2rem;
-    margin-bottom: 2rem;
-    max-width: 800px;
-    margin-left: auto;
-    margin-right: auto;
-    color: white;
-}
-
-.benefits-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
-    margin-bottom: 3rem;
-    text-align: left;
-}
-
-.benefit-item {
-    padding: 1.5rem;
-    background-color: rgba(255, 255, 255, 0.1);
-    border-radius: 10px;
-    box-shadow: var(--box-shadow);
-    transition: transform 0.3s ease;
-    color: white;
-}
-
-.benefit-item:hover {
-    transform: translateY(-5px);
-}
-
-.benefit-item h3 {
-    color: var(--primary-color);
-    margin-bottom: 0.5rem;
-    font-size: 1.3rem;
-}
-
-.benefit-item i {
-    font-size: 2rem;
-    margin-right: 1rem;
-    vertical-align: middle;
-}
-
-.cta-button {
-    background-color: transparent;
-    color: white;
-    text-decoration: none;
-    border: 2px solid white;
-    border-radius: 5px;
-    font-weight: 600;
-    transition: background-color 0.3s ease, border-color 0.3s ease;
-}
-
-.cta-button:hover {
-    background-color: var(--primary-color);
-    border-color: var(--primary-color);
-}
-
-/* Stiluri pentru sectiunea 'start-project' */
-#start-project {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('birou.jpg');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    color: white;
-    text-align: center;
-    border-radius: 10px;
-    padding: 4rem 2rem;
-}
-
-#start-project h2, #start-project p {
-    color: white;
-}
-
-#start-project form {
-    max-width: 800px;
-    background-color: rgba(255, 255, 255, 0.1);
-    padding: 2rem;
-    border-radius: 10px;
-    box-shadow: var(--box-shadow);
-    margin: 2rem auto;
-}
-
-#start-project label {
-    font-weight: 600;
-    color: white;
-}
-
-#start-project input, #start-project textarea, #start-project select {
-    background-color: rgba(255, 255, 255, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    color: white;
-}
-
-#start-project button {
-    background-color: var(--primary-color);
-    color: white;
-    border: none;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-#start-project button:hover {
-    background-color: #0056b3;
-}
-
-/* Stiluri pentru secțiunea Blog */
-#blog {
-    background-color: var(--background-color);
-}
-
-.blog-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-    margin-top: 2rem;
-}
-
-.blog-post {
-    background-color: var(--card-background-color);
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: var(--box-shadow);
-    transition: transform 0.3s ease-in-out;
-}
-
-.blog-post:hover {
-    transform: translateY(-5px);
-}
-
-.blog-post img {
+  .menu {
     width: 100%;
-    height: auto;
-    display: block;
-}
-
-.blog-post-content {
-    padding: 1.5rem;
-}
-
-.blog-post h3 {
-    margin-top: 0;
-    font-size: 1.5rem;
-    color: var(--header-color);
-}
-
-.blog-post small {
-    display: block;
-    margin-bottom: 1rem;
-    color: var(--secondary-color);
-}
-
-.blog-post p {
-    margin-bottom: 1rem;
-}
-
-.blog-post a {
-    color: var(--primary-color);
-    text-decoration: none;
-    font-weight: 600;
-    transition: color 0.3s ease;
-}
-
-.blog-post a:hover {
-    color: #0056b3;
-}
-
-body.dark-mode .blog-post {
-    background-color: #1a1a1a;
-}
-/* Stiluri pentru secțiunea Testimoniale */
-#testimoniale {
-    background-color: var(--card-background-color);
-}
-
-.testimoniale-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-    margin-top: 2rem;
-}
-
-.testimonial-card {
-    background-color: var(--background-color);
-    padding: 2rem;
-    border-radius: 10px;
-    box-shadow: var(--box-shadow);
+    flex-direction: column;
     text-align: center;
-    transition: transform 0.3s ease;
-}
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-in-out;
+  }
 
-body.dark-mode .testimonial-card {
-  background-color: #1a1a1a;
-}
+  .menu.active {
+    max-height: 500px;
+  }
 
-.testimonial-card:hover {
-    transform: translateY(-5px);
-}
+  .menu li {
+    margin: 1rem 0;
+  }
 
-.testimonial-card p {
-    font-style: italic;
-    margin-bottom: 1rem;
-    color: var(--text-color);
-}
+  .switch {
+    order: 3;
+    margin-left: 0;
+  }
 
-.testimonial-card h4 {
-    color: var(--primary-color);
-    margin-bottom: 0.25rem;
-}
+  .dropdown-content {
+    position: static;
+    display: block;
+    background-color: transparent;
+    box-shadow: none;
+  }
 
-.testimonial-card small {
-    color: var(--secondary-color);
+  .dropdown-content a {
+    padding-left: 3rem;
+  }
+
+  #acasa h2 {
+    font-size: 2rem;
+  }
+
+  .service-content {
+      flex-direction: column;
+      gap: 2rem;
+  }
+
+  .service-image {
+      order: -1;
+  }
+
+  /* Schimbă formularul pe o singură coloană pe mobil */
+  .form-grid {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
 }

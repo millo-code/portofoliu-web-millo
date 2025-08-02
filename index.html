@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="ro">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MySite</title>
+    <link rel="stylesheet" href="style.css" />
+    <script
+      src="https://kit.fontawesome.com/a2e8efac31.js"
+      crossorigin="anonymous"
+    ></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div id="loader-wrapper">
+      <div id="loader"></div>
+    </div>
+
+    <nav class="navbar">
+      <div class="logo fade-in">millo & A.I</div>
+      <button class="hamburger" id="hamburger">&#9776;</button>
+      <ul class="menu" id="menu">
+        <li><a href="#acasa">Acasa</a></li>
+        <li><a href="#despre">Despre</a></li>
+        <li class="dropdown">
+          <a href="#servicii">Servicii ▾</a>
+          <ul class="dropdown-content">
+            <li><a href="#web">Web Design</a></li>
+            <li><a href="#seo">SEO</a></li>
+            <li><a href="#consultanta">Consultanță</a></li>
+          </ul>
+        </li>
+        <li><a href="#blog">Blog</a></li>
+        <li><a href="#testimoniale">Testimoniale</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <label class="switch" for="theme-switch">
+        <input type="checkbox" id="theme-switch" />
+        <span class="slider"></span>
+      </label>
+    </nav>
+
+    <main id="main-content">
+      <section id="acasa">
+        <div class="hidden" style="text-align: center;">
+          <h2 style="font-size: 3rem; margin-bottom: 1rem;">Transform ideile în prezență online de succes</h2>
+          <p style="font-size: 1.2rem; margin-bottom: 2rem; max-width: 800px; margin-left: auto; margin-right: auto;">
+            Salut, sunt Millo. Ca freelancer, alături de un partener A.I., creez soluții digitale unice. De la design-uri web personalizate, la strategii SEO de top, folosesc inovația pentru a-ți propulsa afacerea în mediul online.
+          </p>
+          
+          <div class="benefits-grid">
+            <div class="benefit-item" style="background-color: rgba(255, 255, 255, 0.1); color: white;">
+              <h3><i class="fas fa-rocket"></i> Viteză și Performanță</h3>
+              <p>Îți ofer site-uri rapide, optimizate pentru motoarele de căutare și cu o experiență de utilizare impecabilă, create cu suportul inovației AI.</p>
+            </div>
+            <div class="benefit-item" style="background-color: rgba(255, 255, 255, 0.1); color: white;">
+              <h3><i class="fas fa-magic"></i> Design Personalizat</h3>
+              <p>Folosesc instrumente AI pentru a genera rapid concepte unice, pe care le adaptez și finisez manual pentru a-ți crea o identitate vizuală de neuitat.</p>
+            </div>
+            <div class="benefit-item" style="background-color: rgba(255, 255, 255, 0.1); color: white;">
+              <h3><i class="fas fa-users"></i> Suport dedicat</h3>
+              <p>Îți sunt alături la fiecare pas, de la concept la lansare și mentenanță, oferind o colaborare directă și transparentă.</p>
+            </div>
+          </div>
+          
+          <a href="#start-project" class="cta-button">Începe proiectul tău</a>
+        </div>
+      </section>
+
+      <section id="start-project">
+        <h2>E timpul să transformăm ideile în realitate</h2>
+        <p>Te voi contacta în cel mai scurt timp pentru a discuta despre cum putem construi o prezență online de succes pentru afacerea ta.</p>
+        <form action="https://formspree.io/f/mjkoeybv" method="POST">
+            <div class="form-group">
+                <label for="full-name">Numele tău complet:</label>
+                <input type="text" id="full-name" name="full-name" required>
+                <span class="error-message">Acest câmp este obligatoriu.</span>
+            </div>
+            <div class="form-group">
+                <label for="email">Adresa ta de email:</label>
+                <input type="email" id="email" name="email" required>
+                <span class="error-message">Acest câmp este obligatoriu și trebuie să fie un email valid.</span>
+            </div>
+            <div class="form-group">
+                <label for="phone">Numărul de telefon (opțional):</label>
+                <input type="tel" id="phone" name="phone">
+            </div>
+            <div class="form-group">
+                <label for="budget">Bugetul estimat pentru proiect:</label>
+                <select id="budget" name="budget">
+                    <option value="500-1000">500 - 1000 EUR</option>
+                    <option value="1000-3000">1000 - 3000 EUR</option>
+                    <option value="3000+">peste 3000 EUR</option>
+                    <option value="discutie">Încă nu sunt sigur</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="project-details">Spune-mi mai multe despre proiectul tău:</label>
+                <textarea id="project-details" name="project-details" required></textarea>
+                <span class="error-message">Acest câmp este obligatoriu.</span>
+            </div>
+            <button type="submit">Trimite propunerea</button>
+        </form>
+      </section>
+
+      <section id="despre">
+        <h2 class="hidden">Despre mine</h2>
+        <div class="hidden">
+          <p>
+            Sunt Millo, un freelancer pasionat de tehnologie, creativitate și eficiență. În parteneriat cu A.I., un set avansat de instrumente de inteligență artificială, îmi amplific abilitățile pentru a crea soluții web unice și performante.
+          </p>
+          <p>
+            Munca mea se bazează pe trei piloni esențiali: **creativitate**, **precizie** și **colaborare**. Fiecare proiect este o colaborare directă, transparentă, unde îmi pun toată expertiza pentru a-ți construi o prezență online care te reprezintă perfect.
+          </p>
+        </div>
+      </section>
+
+      <section id="servicii">
+        <h2 class="hidden">Servicii complete pentru o prezență online de succes</h2>
+        <div class="hidden">
+          <p>
+            De la design web captivant la strategii SEO eficiente, ofer soluții personalizate care transformă viziunea ta în realitate. Misiunea mea este să construiesc o fundație digitală solidă, adaptată perfect nevoilor tale, folosind cele mai noi tehnologii, inclusiv AI.
+          </p>
+          <p>
+            Explorează portofoliul meu de servicii și alege ce se potrivește cel mai bine pentru afacerea ta.
+          </p>
+        </div>
+      </section>
+
+      <section id="web" class="hidden">
+        <h2 class="hidden">Servicii de Web Design</h2>
+        <div class="hidden">
+          <p>
+            Un site web este cartea ta de vizită digitală. Creez experiențe online memorabile, cu design-uri moderne, intuitive și 100% responsive. Cu ajutorul AI, procesul de design este mai rapid, iar codul este optimizat pentru viteză și performanță maximă.
+          </p>
+          <ul>
+            <li>Design UI/UX personalizat</li>
+            <li>Dezvoltare Front-End & Back-End</li>
+            <li>Site-uri de prezentare și bloguri</li>
+            <li>Magazine online (E-commerce)</li>
+            <li>Mentenanță și suport tehnic</li>
+          </ul>
+          <p>
+            Transformă-ți ideile în realitate cu un site care arată impecabil și funcționează perfect pe orice dispozitiv.
+          </p>
+        </div>
+      </section>
+
+      <section id="seo" class="hidden">
+        <h2 class="hidden">Optimizare SEO (Search Engine Optimization)</h2>
+        <div class="hidden">
+          <p>
+            Vrei să fii găsit de clienți? O strategie SEO eficientă este cheia. Mă asigur că site-ul tău apare în topul rezultatelor de căutare pe Google, atrăgând astfel trafic organic și de calitate. Folosesc instrumente AI pentru a analiza cuvinte cheie, a optimiza conținut și a monitoriza performanța cu o precizie de neegalat.
+          </p>
+          <ul>
+            <li>Analiza cuvintelor cheie și a concurenței</li>
+            <li>Optimizare tehnică On-Page și Off-Page</li>
+            <li>Creare de conținut optimizat</li>
+            <li>Monitorizare și rapoarte de performanță</li>
+          </ul>
+          <p>
+            Investește în SEO și transformă vizitatorii în clienți fideli.
+          </p>
+        </div>
+      </section>
+
+      <section id="consultanta" class="hidden">
+        <h2 class="hidden">Consultanță Digitală Strategică</h2>
+        <div class="hidden">
+          <p>
+            Fiecare proiect de succes începe cu o viziune clară. Ofer consultanță de specialitate pentru a-ți defini obiectivele, a-ți optimiza strategia online și a-ți maximiza impactul digital. Folosesc analize bazate pe AI pentru a-ți oferi o perspectivă completă și a te ajuta să iei cele mai bune decizii.
+          </p>
+          <ul>
+            <li>Audit complet al site-ului și strategiei actuale</li>
+            <li>Planificare strategică a prezenței online</li>
+            <li>Consiliere în alegerea celor mai bune tehnologii</li>
+            <li>Sesiuni de training și suport personalizat</li>
+          </ul>
+          <p>
+            Te ajut să iei deciziile corecte pentru a-ți atinge obiectivele de business.
+          </p>
+        </div>
+      </section>
+
+      <section id="blog">
+        <h2 class="hidden">Ultimele articole de pe blog</h2>
+        <div class="blog-container hidden">
+          <div class="blog-post">
+            <img src="https://via.placeholder.com/400x250" alt="Imagine blog post 1">
+            <h3>Cum să-ți optimizezi site-ul pentru Google</h3>
+            <small>Publicat pe 24 iulie 2024 de Ion Popescu</small>
+            <p>O analiză detaliată a celor mai bune practici SEO pentru a te poziționa în topul rezultatelor de căutare...</p>
+            <a href="#">Citește mai mult &rarr;</a>
+          </div>
+          <div class="blog-post">
+            <img src="https://via.placeholder.com/400x250" alt="Imagine blog post 2">
+            <h3>Design-ul web modern în 2024</h3>
+            <small>Publicat pe 15 iulie 2024 de Ana Vasilescu</small>
+            <p>Descoperă tendințele actuale în design-ul web, de la animații subtile la interfețe intuitive...</p>
+            <a href="#">Citește mai mult &rarr;</a>
+          </div>
+          <div class="blog-post">
+            <img src="https://via.placeholder.com/400x250" alt="Imagine blog post 3">
+            <h3>E-commerce: de la idee la succes</h3>
+            <small>Publicat pe 3 iulie 2024 de George Enescu</small>
+            <p>Ghidul complet pentru a lansa un magazin online de succes, de la platformă la strategie de marketing...</p>
+            <a href="#">Citește mai mult &rarr;</a>
+          </div>
+        </div>
+      </section>
+
+      <section id="testimoniale">
+        <h2 class="hidden">Ce spun clienții mei</h2>
+        <div class="testimoniale-container hidden">
+            <div class="testimonial-card">
+                <p>"Colaborarea cu Millo a fost excepțională. Nu doar că a creat un site web minunat, dar a înțeles cu adevărat viziunea afacerii noastre. Faptul că folosește și inteligența artificială s-a văzut în rapiditatea și calitatea rezultatelor!"</p>
+                <h4>Alexandru Popescu</h4>
+                <small>CEO, TechSolutions</small>
+            </div>
+            <div class="testimonial-card">
+                <p>"Serviciile sale SEO au transformat prezența noastră online. Am văzut o creștere masivă a traficului organic și a conversiilor."</p>
+                <h4>Maria Ionescu</h4>
+                <small>Marketing Manager, GreenFarm</small>
+            </div>
+            <div class="testimonial-card">
+                <p>"Recomand cu încredere! A fost rapid, profesionist și a livrat un produs final care ne-a depășit toate așteptările."</p>
+                <h4>Cristian Mihai</h4>
+                <small>Fondator, FreshEats</small>
+            </div>
+        </div>
+      </section>
+
+      <section id="contact">
+        <h2 class="hidden">E timpul să-ți transformi ideile în realitate</h2>
+        <p class="hidden">Contactează-mă astăzi pentru o discuție liberă despre proiectul tău. Vom găsi împreună cea mai bună soluție pentru tine, fără niciun fel de obligație.</p>
+        <form class="hidden" action="https://formspree.io/f/mjkoeybv" method="POST">
+          <div class="form-group">
+            <label>Numele tău complet:</label><br />
+            <input type="text" name="nume" required /><br />
+            <span class="error-message">Acest câmp este obligatoriu.</span>
+          </div>
+          <div class="form-group">
+            <label>Adresa ta de email:</label><br />
+            <input type="email" name="email" required /><br />
+            <span class="error-message">Acest câmp este obligatoriu și trebuie să fie un email valid.</span>
+          </div>
+          <div class="form-group">
+            <label>Spune-mi despre proiectul tău:</label><br />
+            <textarea name="mesaj" required></textarea><br />
+            <span class="error-message">Acest câmp este obligatoriu.</span>
+          </div>
+          <button type="submit">Trimite mesajul</button>
+        </form>
+      </section>
+    </main>
+
+    <footer>
+      <p>&copy; 2025 MilloSite. Toate drepturile rezervate.</p>
+    </footer>
+
+    <button id="backToTop" title="Sus">↑</button>
+
+    <script src="script.js"></script>
+  </body>
+</html>

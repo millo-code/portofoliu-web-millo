@@ -11,7 +11,6 @@ document.addEventListener('DOMContentLoaded', () => {
             navMenu.classList.toggle("active");
         });
 
-        // Închide meniul când se dă click pe un link
         document.querySelectorAll(".nav-link").forEach(n => n.addEventListener("click", () => {
             hamburger.classList.remove("active");
             navMenu.classList.remove("active");
@@ -32,61 +31,69 @@ document.addEventListener('DOMContentLoaded', () => {
                 return;
             }
 
-            // Arată spinner-ul de încărcare și dezactivează butonul
             loadingSpinner.style.display = 'block';
             generateBtn.disabled = true;
             generateBtn.textContent = 'Se generează...';
 
             try {
-                // Acesta este URL-ul funcției tale serverless pe Netlify
                 const response = await fetch('/.netlify/functions/generate-code', {
                     method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
+                    headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ description: description }),
                 });
 
                 if (!response.ok) {
-                    throw new Error(`Eroare de la server: ${response.statusText}`);
+                    // Dacă serverul dă o eroare (ex: 500), o prindem aici
+                    const errorData = await response.json();
+                    throw new Error(errorData.error || `Eroare de la server: ${response.statusText}`);
+                }
+                
+                // ============= MODIFICARE IMPORTANTĂ AICI =============
+                // 1. Luăm răspunsul ca text simplu
+                let responseText = await response.text();
+                console.log("Răspuns brut de la server:", responseText); // Pentru debug
+
+                // 2. Curățăm textul de posibile caractere extra (markdown etc.)
+                // Găsim primul '{' și ultimul '}' pentru a extrage doar JSON-ul
+                const firstBracket = responseText.indexOf('{');
+                const lastBracket = responseText.lastIndexOf('}');
+                if (firstBracket !== -1 && lastBracket !== -1) {
+                    responseText = responseText.substring(firstBracket, lastBracket + 1);
                 }
 
-                const data = await response.json();
+                // 3. Acum încercăm să-l parcurgem ca JSON
+                const data = JSON.parse(responseText);
+                // =======================================================
+
                 const { html, css } = data;
 
-                // Injectează codul în iframe pentru previzualizare
+                if (!html || !css) {
+                    throw new Error("Răspunsul de la AI este invalid sau incomplet.");
+                }
+
                 const previewDocument = previewFrame.contentWindow.document;
                 previewDocument.open();
                 previewDocument.write(`
                   <html>
                     <head>
                         <style>
-                            /* Stiluri pentru a centra conținutul în iframe */
                             body { 
-                                display: flex; 
-                                justify-content: center; 
-                                align-items: center; 
-                                height: 100%; 
-                                margin: 0; 
-                                padding: 20px; 
-                                box-sizing: border-box; 
-                                font-family: sans-serif;
+                                display: flex; justify-content: center; align-items: center; 
+                                height: 100%; margin: 0; padding: 20px; 
+                                box-sizing: border-box; font-family: sans-serif;
                             }
                             ${css}
                         </style>
                     </head>
-                    <body>
-                        ${html}
-                    </body>
+                    <body>${html}</body>
                   </html>
                 `);
                 previewDocument.close();
 
             } catch (error) {
                 console.error('A apărut o eroare:', error);
-                alert('Ne pare rău, a apărut o eroare la generarea componentei. Verifică consola pentru detalii.');
+                alert(`Ne pare rău, a apărut o eroare la generarea componentei. Detalii: ${error.message}`);
             } finally {
-                // Ascunde spinner-ul și reactivează butonul
                 loadingSpinner.style.display = 'none';
                 generateBtn.disabled = false;
                 generateBtn.textContent = 'Generează Componenta';

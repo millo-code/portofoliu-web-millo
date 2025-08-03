@@ -32,44 +32,13 @@
 
     <main>
         <section id="hero" class="hero-section">
-            <div class="container">
-                <h1>Dezvoltator Web & Soluții AI Creative</h1>
-                <p class="subtitle">Transformăm ideile tale în realitate digitală. De la site-uri de prezentare la integrări AI complexe.</p>
-                <a href="#contact" class="cta-button">Contactează-mă</a>
-            </div>
-        </section>
+            </section>
 
         <section id="despre" class="content-section section--hidden">
-            <div class="container about-container">
-                <div class="about-text">
-                    <h2>Salut, sunt Marius.</h2>
-                    <p>Sunt un dezvoltator web pasionat, specializat în crearea de site-uri web performante și intuitive. Cred într-o comunicare deschisă și o colaborare strânsă pentru a ne asigura că viziunea ta devine realitate. Hai să creăm ceva extraordinar împreună!</p>
-                </div>
-                <div class="about-image">
-                    <img src="birou.webp" alt="Birou de lucru">
-                </div>
-            </div>
-        </section>
+            </section>
         
         <section id="servicii" class="content-section-dark section--hidden">
-            <div class="container">
-                <h2>Servicii Oferite</h2>
-                <div class="services-grid">
-                    <div class="service-card">
-                        <h3>Web Design & Development</h3>
-                        <p>Creare de site-uri web de la zero, de la design la implementare, optimizate pentru mobil și viteza.</p>
-                    </div>
-                    <div class="service-card">
-                        <h3>Optimizare SEO</h3>
-                        <p>Îmbunătățirea vizibilității site-ului tău în motoarele de căutare pentru a atrage mai mulți clienți.</p>
-                    </div>
-                    <div class="service-card">
-                        <h3>Integrări AI</h3>
-                        <p>Implementarea de soluții bazate pe inteligență artificială pentru a automatiza procese sau a crea experiențe unice.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
+             </section>
 
         <section id="ai-demo" class="ai-demo section--hidden">
             <div class="container">
@@ -83,27 +52,33 @@
                         <div id="loading-spinner" style="display:none;">Se generează...</div>
                     </div>
                     <div class="preview-area">
-                        <h3>Previzualizare Live:</h3>
+                        <div class="preview-header">
+                            <h3>Previzualizare Live:</h3>
+                            <button id="expand-btn" class="preview-action-btn" title="Mărește previzualizarea">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                                    <path d="M1.5 1a.5.5 0 0 0-.5.5v4a.5.5 0 0 1-1 0v-4A1.5 1.5 0 0 1 1.5 0h4a.5.5 0 0 1 0 1h-4zM10 .5a.5.5 0 0 1 .5-.5h4A1.5 1.5 0 0 1 16 1.5v4a.5.5 0 0 1-1 0v-4a.5.5 0 0 0-.5-.5h-4a.5.5 0 0 1-.5-.5zM.5 10a.5.5 0 0 1 .5.5v4a.5.5 0 0 0 .5.5h4a.5.5 0 0 1 0 1h-4A1.5 1.5 0 0 1 0 14.5v-4a.5.5 0 0 1 .5-.5zm15 0a.5.5 0 0 1 .5.5v4a1.5 1.5 0 0 1-1.5 1.5h-4a.5.5 0 0 1 0-1h4a.5.5 0 0 0 .5-.5v-4a.5.5 0 0 1 .5-.5z"/>
+                                </svg>
+                            </button>
+                        </div>
                         <div class="preview-box">
                             <iframe id="preview-iframe"></iframe>
                         </div>
+                        <button id="close-btn" class="preview-action-btn close-btn" title="Închide previzualizarea">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 16 16">
+                                <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z"/>
+                            </svg>
+                        </button>
                     </div>
                 </div>
             </div>
         </section>
 
         <section id="contact" class="content-section-dark section--hidden">
-            <div class="container">
-                <h2>Ai un proiect în minte?</h2>
-                <p>Completează formularul de mai jos sau scrie-mi un e-mail. Abia aștept să colaborăm!</p>
-                <a href="mailto:emailul.tau@exemplu.com" class="cta-button">Scrie-mi un E-mail</a>
-            </div>
-        </section>
+            </section>
     </main>
 
     <footer>
-        <p>&copy; 2025 MilloCode. Toate drepturile rezervate.</p>
-    </footer>
+        </footer>
 
     <script src="script.js"></script>
 </body>

@@ -43,6 +43,55 @@ header {
 .nav-link:hover { color: var(--primary-color); }
 .hamburger { display: none; cursor: pointer; }
 .bar { display: block; width: 25px; height: 3px; margin: 5px auto; transition: all 0.3s ease-in-out; background-color: var(--text-light); }
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 1.5rem;
+    height: 70px;
+}
+
+/* Stiluri pentru a le grupa pe ambele */
+.logo-container {
+    display: flex;
+    flex-direction: column; /* Așează elementele pe verticală */
+    align-items: flex-start; /* Aliniază la stânga */
+}
+
+.nav-branding {
+    font-size: 1.5rem;
+    font-weight: 700;
+    text-decoration: none;
+    color: var(--text-light);
+}
+
+.nav-freelancer {
+    font-size: 0.8rem;
+    color: var(--military-green);
+    font-weight: 500;
+    position: relative;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.nav-freelancer::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background-color: var(--military-green);
+    animation: slideIn 1s forwards;
+}
+
+@keyframes slideIn {
+    to {
+        left: 0;
+    }
+}
+
+/* ... restul codului pentru navbar ... */
 
 /* --- SECȚIUNEA HERO CU IMAGINE DE FUNDAL --- */
 .hero-section {

@@ -3,23 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MilloCode - Freelancer Web Developer & Soluții AI</title>
-    
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
-    
+    <title>MilloCode - Freelancer Web Development</title>
     <link rel="stylesheet" href="style.css">
-</head>
+    </head>
 <body>
 
     <header>
         <nav class="navbar">
-            <a href="#hero" class="nav-branding">MilloCode.</a>
+            <a href="#" class="nav-branding">MilloCode.</a>
             <ul class="nav-menu">
                 <li class="nav-item"><a href="#despre" class="nav-link">Despre</a></li>
-                <li class="nav-item"><a href="#servicii" class="nav-link">Servicii</a></li>
-                <li class="nav-item"><a href="#ai-demo" class="nav-link">Demo AI</a></li>
+                <li class="nav-item"><a href="#portofoliu" class="nav-link">Portofoliu</a></li>
                 <li class="nav-item"><a href="#contact" class="nav-link">Contact</a></li>
             </ul>
             <div class="hamburger">
@@ -31,54 +25,41 @@
     </header>
 
     <main>
-        <section id="hero" class="hero-section">
-            </section>
+        <section id="hero" style="padding: 100px 20px; text-align: center;">
+            <h1>Bine ai venit pe site-ul meu!</h1>
+            <p>Conținutul tău principal vine aici.</p>
+        </section>
 
-        <section id="despre" class="content-section section--hidden">
-            </section>
-        
-        <section id="servicii" class="content-section-dark section--hidden">
-             </section>
-
-        <section id="ai-demo" class="ai-demo section--hidden">
-            <div class="container">
-                <h2>Demonstrație AI Interactivă</h2>
-                <p>Descrie o componentă web și vezi cum prinde viață instantaneu!</p>
-                <div class="demo-container">
-                    <div class="input-area">
-                        <h3>Descrierea ta:</h3>
-                        <textarea id="component-description" placeholder="Ex: un buton albastru cu colțuri rotunjite care devine verde la hover"></textarea>
-                        <button id="generate-btn">Generează Componenta</button>
-                        <div id="loading-spinner" style="display:none;">Se generează...</div>
-                    </div>
-                    <div class="preview-area">
-                        <div class="preview-header">
-                            <h3>Previzualizare Live:</h3>
-                            <button id="expand-btn" class="preview-action-btn" title="Mărește previzualizarea">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
-                                    <path d="M1.5 1a.5.5 0 0 0-.5.5v4a.5.5 0 0 1-1 0v-4A1.5 1.5 0 0 1 1.5 0h4a.5.5 0 0 1 0 1h-4zM10 .5a.5.5 0 0 1 .5-.5h4A1.5 1.5 0 0 1 16 1.5v4a.5.5 0 0 1-1 0v-4a.5.5 0 0 0-.5-.5h-4a.5.5 0 0 1-.5-.5zM.5 10a.5.5 0 0 1 .5.5v4a.5.5 0 0 0 .5.5h4a.5.5 0 0 1 0 1h-4A1.5 1.5 0 0 1 0 14.5v-4a.5.5 0 0 1 .5-.5zm15 0a.5.5 0 0 1 .5.5v4a1.5 1.5 0 0 1-1.5 1.5h-4a.5.5 0 0 1 0-1h4a.5.5 0 0 0 .5-.5v-4a.5.5 0 0 1 .5-.5z"/>
-                                </svg>
-                            </button>
-                        </div>
-                        <div class="preview-box">
-                            <iframe id="preview-iframe"></iframe>
-                        </div>
-                        <button id="close-btn" class="preview-action-btn close-btn" title="Închide previzualizarea">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 16 16">
-                                <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z"/>
-                            </svg>
-                        </button>
+        <section id="ai-demo" class="ai-demo">
+            <h2>Demonstrație AI Interactivă</h2>
+            <p>Descrie o componentă web și vezi cum prinde viață instantaneu!</p>
+            
+            <div class="demo-container">
+                <div class="input-area">
+                    <textarea id="component-description" placeholder="Ex: un card cu o imagine sus, un titlu și un paragraf de text"></textarea>
+                    <button id="generate-btn">Generează Componenta</button>
+                    <div id="loading-spinner" style="display:none;">Se generează...</div>
+                </div>
+                
+                <div class="preview-area">
+                    <h3>Previzualizare Live</h3>
+                    <div class="preview-box">
+                        <iframe id="preview-iframe"></iframe>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="contact" class="content-section-dark section--hidden">
-            </section>
+        <section id="contact" style="padding: 100px 20px; text-align: center;">
+            <h2>Ai un proiect în minte?</h2>
+            <p>Formularul tău de contact vine aici.</p>
+        </section>
+        
     </main>
 
     <footer>
-        </footer>
+        <p>&copy; 2025 MilloCode. Toate drepturile rezervate.</p>
+    </footer>
 
     <script src="script.js"></script>
 </body>

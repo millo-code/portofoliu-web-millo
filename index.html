@@ -1,177 +1,237 @@
 <!DOCTYPE html>
-<html lang="ro">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>MySite</title>
-    <link rel="stylesheet" href="style.css" />
-    <script
-      src="https://kit.fontawesome.com/a2e8efac31.js"
-      crossorigin="anonymous"
-    ></script>
-    <link
-      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap"
-      rel="stylesheet"
-    />
-  </head>
-  <body>
-    <div id="loader-wrapper">
-      <div id="loader"></div>
-    </div>
+<html lang="ro" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Millo Code - Dezvoltare Web & Soluții AI</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+    
+    <!-- Lucide Icons CDN -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <!-- ScrollReveal CDN (pentru animații) -->
+    <script src="https://unpkg.com/scrollreveal"></script>
 
-    <nav class="navbar">
-      <a href="#acasa" class="logo-link">millo-code.ro</a>
-      <button class="hamburger" id="hamburger">&#9776;</button>
-      <ul class="menu" id="menu">
-        <li><a href="#acasa">Acasa</a></li>
-        <li><a href="#despre">Despre</a></li>
-        <li><a href="#web">Web Design</a></li>
-        <li><a href="#seo">SEO</a></li>
-        <li><a href="#consultanta">Consultanță</a></li>
-        <li><a href="#contact">Contact</a></li>
-        <li>
-          <div class="switch">
-            <input type="checkbox" id="theme-switch" />
-            <span class="slider"></span>
-          </div>
-        </li>
-      </ul>
-    </nav>
+    <!-- Fișierul tău CSS personalizat -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="gradient-bg">
 
-    <main>
-      <section id="acasa">
-        <h2 class="hidden">Creativitate și Inovație digitală</h2>
-        <p class="hidden">Construim site-uri web excepționale și strategii digitale pentru afacerea ta, menite să atragă clienți și să-ți crească brandul online.</p>
-        <a href="#contact" class="cta-button hidden">Începe proiectul</a>
-      </section>
-
-      <section id="despre">
-        <h2 class="hidden">Cine sunt și ce fac</h2>
-        <p class="hidden">Sunt un specialist pasionat de web design și strategii de marketing online, dedicat să ajut afacerile să prospere în mediul digital. Combinând design-ul modern cu funcționalitatea de top, ofer soluții personalizate care se adaptează perfect nevoilor tale.</p>
-        <div class="benefits-grid hidden">
-          <div class="benefit-item">
-            <i class="fas fa-handshake"></i>
-            <h3>Parteneriat</h3>
-            <p>Lucrăm împreună, transparent, pentru a-ți atinge obiectivele.</p>
-          </div>
-          <div class="benefit-item">
-            <i class="fas fa-rocket"></i>
-            <h3>Viteză și Performanță</h3>
-            <p>Construim site-uri optimizate pentru o experiență rapidă.</p>
-          </div>
-          <div class="benefit-item">
-            <i class="fas fa-lightbulb"></i>
-            <h3>Inovație</h3>
-            <p>Utilizăm cele mai noi tehnologii pentru un rezultat modern.</p>
-          </div>
+    <!-- ========== HEADER & NAVIGATION ========== -->
+    <header class="bg-black/50 backdrop-blur-sm fixed top-0 left-0 right-0 z-50">
+        <div class="container mx-auto px-4">
+            <nav class="flex justify-between items-center py-3">
+                <!-- LOGO MODIFICAT -->
+                <a href="#" class="flex flex-col items-start leading-none">
+                    <span class="text-2xl font-bold tracking-tighter text-white">Millo<span class="text-emerald-400">Code</span>.</span>
+                    <span class="text-xs text-neutral-400 tracking-widest uppercase -mt-1">Freelancer</span>
+                </a>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#servicii" class="text-neutral-300 hover:text-white transition-colors">Servicii</a>
+                    <a href="#portofoliu" class="text-neutral-300 hover:text-white transition-colors">Portofoliu</a>
+                    <a href="#despre" class="text-neutral-300 hover:text-white transition-colors">Despre</a>
+                </div>
+                <div class="flex items-center space-x-4">
+                     <a href="#contact" class="hidden md:inline-block bg-emerald-500 text-black font-semibold px-5 py-2 rounded-md hover:bg-emerald-400 transition-all">Contactează-mă</a>
+                     <button id="mobile-menu-button" class="md:hidden p-2 rounded-md text-neutral-300 hover:bg-neutral-800">
+                        <i data-lucide="menu"></i>
+                    </button>
+                </div>
+            </nav>
         </div>
-      </section>
-
-      <section id="servicii">
-        <h2 class="hidden">Serviciile mele</h2>
-      </section>
-
-      <section id="web">
-        <div class="service-content hidden">
-            <div class="service-text">
-                <h2>Web Design</h2>
-                <p>
-                    Creăm site-uri web profesionale, responsive și optimizate, care nu doar arată bine, ci și convertesc vizitatorii în clienți. De la site-uri de prezentare simple la magazine online complexe, fiecare proiect este construit cu atenție la detalii și performanță.
-                </p>
-                <ul>
-                    <li><i class="fas fa-check"></i> Design personalizat</li>
-                    <li><i class="fas fa-check"></i> Optimizare pentru mobil</li>
-                    <li><i class="fas fa-check"></i> Sisteme de management al conținutului (CMS)</li>
-                </ul>
-            </div>
-            <div class="service-image">
-                <img src="web-design.webp" alt="Web Design" />
-            </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-neutral-900">
+            <a href="#servicii" class="block py-3 px-4 text-center text-neutral-300 hover:bg-neutral-800">Servicii</a>
+            <a href="#portofoliu" class="block py-3 px-4 text-center text-neutral-300 hover:bg-neutral-800">Portofoliu</a>
+            <a href="#despre" class="block py-3 px-4 text-center text-neutral-300 hover:bg-neutral-800">Despre</a>
+            <a href="#contact" class="block py-4 px-4 text-center bg-emerald-500 text-black font-semibold">Contactează-mă</a>
         </div>
-      </section>
+    </header>
 
-      <section id="seo">
-        <div class="service-content hidden">
-            <div class="service-image">
-                <img src="seo.webp" alt="SEO" />
-            </div>
-            <div class="service-text">
-                <h2>Optimizare SEO</h2>
-                <p>
-                    Ajutăm site-ul tău să apară în topul rezultatelor motoarelor de căutare. Prin strategii SEO on-page și off-page, creștem vizibilitatea organică, atragem trafic de calitate și îți consolidăm prezența online.
+    <main class="pt-24">
+        <!-- ========== HERO SECTION ========== -->
+        <section id="home" class="py-20 md:py-32">
+            <div class="container mx-auto px-4 text-center">
+                <h1 class="reveal text-4xl md:text-6xl lg:text-7xl font-black tracking-tighter mb-4 leading-tight">
+                    Creăm Experiențe Digitale <span class="text-emerald-400">Moderne</span>.
+                </h1>
+                <p class="reveal max-w-3xl mx-auto text-lg md:text-xl text-neutral-400 mb-8">
+                    De la site-uri web performante la integrări AI și design grafic de impact. Transformăm ideile tale în realitate digitală.
                 </p>
-                <div class="seo-grid">
-                    <div class="seo-item">
-                        <i class="fas fa-search"></i>
-                        <h3>Cercetare Cuvinte Cheie</h3>
+                <div class="reveal flex justify-center items-center gap-4 flex-wrap">
+                    <a href="#portofoliu" class="bg-emerald-500 text-black font-semibold px-8 py-3 rounded-md hover:bg-emerald-400 transition-all text-lg">Vezi Proiectele</a>
+                    <a href="#servicii" class="bg-neutral-800 text-white font-semibold px-8 py-3 rounded-md hover:bg-neutral-700 transition-all text-lg">Serviciile Mele</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========== SERVICES SECTION ========== -->
+        <section id="servicii" class="py-20">
+            <div class="container mx-auto px-4">
+                <div class="text-center mb-12">
+                    <h2 class="reveal text-3xl md:text-4xl font-bold tracking-tight">Ce pot face pentru tine</h2>
+                    <p class="reveal text-neutral-400 mt-2 max-w-2xl mx-auto">Ofer o gamă de servicii pentru a-ți aduce proiectul la viață, cu focus pe tehnologie modernă și rezultate concrete.</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Service Card 1: Frontend Development -->
+                    <div class="reveal bg-neutral-900/50 border border-neutral-800 p-8 rounded-xl shadow-lg hover:border-emerald-500 transition-all">
+                        <div class="bg-emerald-500/10 inline-block p-3 rounded-lg mb-4">
+                            <i data-lucide="code-xml" class="text-emerald-400"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">Dezvoltare Frontend</h3>
+                        <p class="text-neutral-400">Construiesc interfețe web rapide, responsive și intuitive folosind tehnologii de top precum React, Vue și Tailwind CSS.</p>
                     </div>
-                    <div class="seo-item">
-                        <i class="fas fa-chart-line"></i>
-                        <h3>Analiză Tehnică</h3>
+                    <!-- Service Card 2: AI Integration -->
+                    <div class="reveal bg-neutral-900/50 border border-neutral-800 p-8 rounded-xl shadow-lg hover:border-emerald-500 transition-all">
+                        <div class="bg-emerald-500/10 inline-block p-3 rounded-lg mb-4">
+                            <i data-lucide="brain-circuit" class="text-emerald-400"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">Integrare AI & Automatizări</h3>
+                        <p class="text-neutral-400">Implementez soluții AI pentru a-ți optimiza afacerea: de la chatbot-uri inteligente la automatizarea proceselor repetitive.</p>
                     </div>
-                    <div class="seo-item">
-                        <i class="fas fa-link"></i>
-                        <h3>Link Building</h3>
+                    <!-- Service Card 3: Graphic Design -->
+                    <div class="reveal bg-neutral-900/50 border border-neutral-800 p-8 rounded-xl shadow-lg hover:border-emerald-500 transition-all">
+                        <div class="bg-emerald-500/10 inline-block p-3 rounded-lg mb-4">
+                            <i data-lucide="palette" class="text-emerald-400"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">Design Grafic & UI/UX</h3>
+                        <p class="text-neutral-400">Creez identități vizuale memorabile, de la logo-uri și materiale de branding, la design de interfață (UI/UX) focusat pe utilizator.</p>
                     </div>
                 </div>
             </div>
-        </div>
-      </section>
+        </section>
 
-      <section id="consultanta">
-        <div class="service-content hidden">
-            <div class="service-text">
-                <h2>Consultanță Digitală</h2>
-                <p>
-                    Dacă ai nevoie de o direcție clară în mediul digital, ofer servicii de consultanță strategică. Analizăm nevoile afacerii tale și creăm un plan personalizat pentru a-ți maximiza impactul online.
-                </p>
-                <ul class="consultanta-list">
-                    <li><i class="fas fa-bullseye"></i> Strategii de marketing</li>
-                    <li><i class="fas fa-cogs"></i> Audit de performanță a site-ului</li>
-                    <li><i class="fas fa-users"></i> Planificare a prezenței pe social media</li>
-                </ul>
+        <!-- ========== PORTFOLIO SECTION ========== -->
+        <section id="portofoliu" class="py-20 bg-neutral-900/60">
+            <div class="container mx-auto px-4">
+                <div class="text-center mb-12">
+                    <h2 class="reveal text-3xl md:text-4xl font-bold tracking-tight">Proiecte Recente</h2>
+                    <p class="reveal text-neutral-400 mt-2 max-w-2xl mx-auto">Aici poți vedea câteva exemple din munca mea. Fiecare proiect este o poveste de succes.</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Portfolio Item 1 -->
+                    <div class="reveal bg-neutral-800 rounded-xl overflow-hidden group">
+                        <img src="https://placehold.co/600x400/0a0a0a/10b981?text=Proiect+E-commerce" alt="Imagine proiect e-commerce" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-2">Platformă E-commerce</h3>
+                            <p class="text-neutral-400 mb-4 text-sm">Soluție completă pentru un magazin online, cu design modern și administrare simplă.</p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="bg-emerald-500/20 text-emerald-300 text-xs font-semibold px-2.5 py-1 rounded-full">React</span>
+                                <span class="bg-emerald-500/20 text-emerald-300 text-xs font-semibold px-2.5 py-1 rounded-full">Node.js</span>
+                                <span class="bg-emerald-500/20 text-emerald-300 text-xs font-semibold px-2.5 py-1 rounded-full">UI/UX</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Portfolio Item 2 -->
+                    <div class="reveal bg-neutral-800 rounded-xl overflow-hidden group">
+                        <img src="https://placehold.co/600x400/0a0a0a/3b82f6?text=Aplicație+Web" alt="Imagine aplicație web" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-2">Aplicație Web (SaaS)</h3>
+                            <p class="text-neutral-400 mb-4 text-sm">Dezvoltarea unei aplicații de tip Software-as-a-Service pentru management de proiecte.</p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="bg-blue-500/20 text-blue-300 text-xs font-semibold px-2.5 py-1 rounded-full">Vue.js</span>
+                                <span class="bg-blue-500/20 text-blue-300 text-xs font-semibold px-2.5 py-1 rounded-full">Firebase</span>
+                                <span class="bg-blue-500/20 text-blue-300 text-xs font-semibold px-2.5 py-1 rounded-full">AI Chat</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Portfolio Item 3 -->
+                    <div class="reveal bg-neutral-800 rounded-xl overflow-hidden group">
+                        <img src="https://placehold.co/600x400/0a0a0a/8b5cf6?text=Branding" alt="Imagine proiect branding" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-2">Branding Corporativ</h3>
+                            <p class="text-neutral-400 mb-4 text-sm">Crearea unei identități vizuale complete pentru un startup din domeniul tech.</p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="bg-violet-500/20 text-violet-300 text-xs font-semibold px-2.5 py-1 rounded-full">Logo Design</span>
+                                <span class="bg-violet-500/20 text-violet-300 text-xs font-semibold px-2.5 py-1 rounded-full">Photoshop</span>
+                                <span class="bg-violet-500/20 text-violet-300 text-xs font-semibold px-2.5 py-1 rounded-full">Figma</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="service-image">
-                <img src="consultanta.webp" alt="Consultanță" />
+        </section>
+
+        <!-- ========== ABOUT ME SECTION ========== -->
+        <section id="despre" class="py-20">
+            <div class="container mx-auto px-4">
+                <div class="grid grid-cols-1 md:grid-cols-5 gap-8 md:gap-12 items-center">
+                    <div class="reveal md:col-span-2">
+                        <!-- IMAGINE ACTUALIZATĂ -->
+                        <img src="background.webp" alt="O fotografie cu mine" class="rounded-full w-48 h-48 md:w-full md:h-auto object-cover mx-auto md:rounded-xl shadow-lg">
+                    </div>
+                    <div class="reveal md:col-span-3 text-center md:text-left">
+                        <h2 class="text-3xl md:text-4xl font-bold tracking-tight mb-4">Salut, sunt Millo.</h2>
+                        <p class="text-neutral-400 text-lg mb-4">
+                            Sunt un dezvoltator freelancer pasionat de tehnologie și design. Îmi place să construiesc lucruri care nu doar arată bine, ci și funcționează impecabil, aducând valoare reală clienților mei.
+                        </p>
+                        <p class="text-neutral-400 text-lg">
+                            Cred într-o comunicare deschisă și o colaborare strânsă pentru a ne asigura că viziunea ta devine realitate. Hai să creăm ceva extraordinar împreună!
+                        </p>
+                    </div>
+                </div>
             </div>
-        </div>
-      </section>
-      
-      <section id="contact">
-        <h2 class="hidden">E timpul să-ți transformi ideile în realitate</h2>
-        <p class="hidden">Contactează-mă astăzi pentru o discuție liberă despre proiectul tău. Vom găsi împreună cea mai bună soluție pentru tine, fără niciun fel de obligație.</p>
-        <form class="hidden" action="https://formspree.io/f/mjkoeybv" method="POST">
-          <div class="form-grid">
-            <div class="form-group">
-              <label>Numele tău complet:</label><br />
-              <input type="text" name="nume" required /><br />
-              <span class="error-message">Acest câmp este obligatoriu.</span>
+        </section>
+
+        <!-- ========== CONTACT & FEEDBACK FORM SECTION ========== -->
+        <section id="contact" class="py-20 bg-neutral-900/60">
+            <div class="container mx-auto px-4">
+                <div class="text-center mb-12">
+                    <h2 class="reveal text-3xl md:text-4xl font-bold tracking-tight">Ai un proiect în minte?</h2>
+                    <p class="reveal text-neutral-400 mt-2 max-w-2xl mx-auto">Completează formularul de mai jos sau scrie-mi un e-mail. Abia aștept să colaborăm!</p>
+                </div>
+
+                <div class="max-w-xl mx-auto">
+                    <form id="contact-form" class="reveal space-y-6">
+                        <div>
+                            <label for="name" class="block text-sm font-medium text-neutral-300">Nume</label>
+                            <div class="mt-1">
+                                <input type="text" name="name" id="name" required class="w-full bg-neutral-800 border border-neutral-700 rounded-md shadow-sm py-3 px-4 text-white focus:outline-none focus:ring-2 focus:ring-emerald-500">
+                            </div>
+                        </div>
+                        <div>
+                            <label for="email" class="block text-sm font-medium text-neutral-300">Email</label>
+                            <div class="mt-1">
+                                <input type="email" name="email" id="email" required class="w-full bg-neutral-800 border border-neutral-700 rounded-md shadow-sm py-3 px-4 text-white focus:outline-none focus:ring-2 focus:ring-emerald-500">
+                            </div>
+                        </div>
+                        <div>
+                            <label for="message" class="block text-sm font-medium text-neutral-300">Mesaj</label>
+                            <div class="mt-1">
+                                <textarea id="message" name="message" rows="4" required class="w-full bg-neutral-800 border border-neutral-700 rounded-md shadow-sm py-3 px-4 text-white focus:outline-none focus:ring-2 focus:ring-emerald-500"></textarea>
+                            </div>
+                        </div>
+                        <div>
+                            <button type="submit" class="w-full flex justify-center py-3 px-4 border border-transparent rounded-md shadow-sm text-lg font-bold text-black bg-emerald-500 hover:bg-emerald-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-neutral-900 focus:ring-emerald-500 transition-all">
+                                Trimite Mesajul
+                            </button>
+                        </div>
+                    </form>
+                    <!-- Mesaj de succes, inițial ascuns -->
+                    <div id="success-message" class="hidden mt-6 text-center bg-emerald-500/10 border border-emerald-500 text-emerald-300 px-4 py-3 rounded-md">
+                        <p>Mulțumesc! Mesajul tău a fost trimis cu succes. Voi reveni cu un răspuns în cel mai scurt timp.</p>
+                    </div>
+                </div>
             </div>
-            <div class="form-group">
-              <label>Adresa ta de email:</label><br />
-              <input type="email" name="email" required /><br />
-              <span class="error-message">Acest câmp este obligatoriu și trebuie să fie un email valid.</span>
-            </div>
-            <div class="form-group">
-              <label>Ce buget dispui:</label><br />
-              <input type="text" name="buget" /><br />
-              <span class="error-message"></span>
-            </div>
-            <div class="form-group">
-              <label>Spune-mi despre proiectul tău:</label><br />
-              <textarea name="mesaj" required></textarea><br />
-              <span class="error-message">Acest câmp este obligatoriu.</span>
-            </div>
-          </div>
-          <button type="submit">Trimite mesajul</button>
-        </form>
-      </section>
+        </section>
     </main>
 
-    <footer>
-      <p>&copy; 2024 millo & A.I. Toate drepturile rezervate.</p>
+    <!-- ========== FOOTER ========== -->
+    <footer class="bg-neutral-900">
+        <div class="container mx-auto px-4 py-6 text-center text-neutral-500">
+            <p>&copy; <span id="year"></span> MilloCode. Toate drepturile rezervate.</p>
+        </div>
     </footer>
 
-    <script src="script.js"></script>
-  </body>
+    <!-- Fișierul tău JavaScript -->
+    <!-- `defer` asigură că scriptul se execută după ce HTML-ul este complet încărcat -->
+    <script src="script.js" defer></script>
+</body>
 </html>

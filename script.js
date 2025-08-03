@@ -1,77 +1,96 @@
-// Așteaptă ca întregul document să fie gata
-document.addEventListener('DOMContentLoaded', function() {
+// Așteaptă ca întregul document să fie gata înainte de a rula orice cod
+document.addEventListener('DOMContentLoaded', () => {
 
-    // Initializarea iconițelor Lucide
-    // Asigură-te că `lucide` este disponibil global (din CDN)
-    if (typeof lucide !== 'undefined') {
-        lucide.createIcons();
-    }
+    // --- LOGICA PENTRU MENIUL MOBIL (HAMBURGER) ---
+    const hamburger = document.querySelector(".hamburger");
+    const navMenu = document.querySelector(".nav-menu");
 
-    // --- SCRIPT PENTRU MENIUL MOBIL ---
-    const mobileMenuButton = document.getElementById('mobile-menu-button');
-    const mobileMenu = document.getElementById('mobile-menu');
-
-    if (mobileMenuButton && mobileMenu) {
-        mobileMenuButton.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-        });
-        
-        // Închide meniul mobil la click pe un link din interior
-        document.querySelectorAll('#mobile-menu a').forEach(link => {
-            link.addEventListener('click', () => {
-                mobileMenu.classList.add('hidden');
-            });
-        });
-    }
-
-
-    // --- SETAREA ANULUI CURENT ÎN FOOTER ---
-    const yearSpan = document.getElementById('year');
-    if (yearSpan) {
-        yearSpan.textContent = new Date().getFullYear();
-    }
-
-
-    // --- SCRIPT PENTRU ANIMAȚII (ScrollReveal) ---
-    // Asigură-te că `ScrollReveal` este disponibil global (din CDN)
-    if (typeof ScrollReveal !== 'undefined') {
-        const sr = ScrollReveal({
-            origin: 'bottom',
-            distance: '60px',
-            duration: 1000,
-            delay: 200,
-            reset: false, // Animațiile se execută o singură dată
+    if (hamburger && navMenu) {
+        hamburger.addEventListener("click", () => {
+            hamburger.classList.toggle("active");
+            navMenu.classList.toggle("active");
         });
 
-        // Aplicarea animațiilor pe elemente
-        sr.reveal('.reveal');
+        // Închide meniul când se dă click pe un link
+        document.querySelectorAll(".nav-link").forEach(n => n.addEventListener("click", () => {
+            hamburger.classList.remove("active");
+            navMenu.classList.remove("active");
+        }));
     }
 
+    // --- LOGICA PENTRU DEMONSTRAȚIA AI ---
+    const generateBtn = document.getElementById('generate-btn');
+    const descriptionInput = document.getElementById('component-description');
+    const previewFrame = document.getElementById('preview-iframe');
+    const loadingSpinner = document.getElementById('loading-spinner');
 
-    // --- SCRIPT PENTRU FORMULARUL DE CONTACT ---
-    const contactForm = document.getElementById('contact-form');
-    const successMessage = document.getElementById('success-message');
+    if (generateBtn && descriptionInput && previewFrame && loadingSpinner) {
+        generateBtn.addEventListener('click', async () => {
+            const description = descriptionInput.value;
+            if (!description.trim()) {
+                alert('Te rog, introdu o descriere.');
+                return;
+            }
 
-    if (contactForm && successMessage) {
-        contactForm.addEventListener('submit', function(event) {
-            // Prevenim trimiterea reală a formularului
-            event.preventDefault();
-            
-            // IMPORTANT: Aici se adaugă logica de trimitere a e-mailului
-            // folosind un serviciu precum Netlify Forms, Formspree, sau un backend propriu.
-            // Pentru demonstrație, vom afișa doar mesajul de succes.
+            // Arată spinner-ul de încărcare și dezactivează butonul
+            loadingSpinner.style.display = 'block';
+            generateBtn.disabled = true;
+            generateBtn.textContent = 'Se generează...';
 
-            // Ascundem formularul și afișăm mesajul de succes
-            contactForm.classList.add('hidden');
-            successMessage.classList.remove('hidden');
+            try {
+                // Acesta este URL-ul funcției tale serverless pe Netlify
+                const response = await fetch('/.netlify/functions/generate-code', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ description: description }),
+                });
 
-            // Optional: Resetează formularul după un timp
-            setTimeout(() => {
-                contactForm.reset();
-                contactForm.classList.remove('hidden');
-                successMessage.classList.add('hidden');
-            }, 6000); // Mesajul dispare și formularul reapare după 6 secunde
+                if (!response.ok) {
+                    throw new Error(`Eroare de la server: ${response.statusText}`);
+                }
+
+                const data = await response.json();
+                const { html, css } = data;
+
+                // Injectează codul în iframe pentru previzualizare
+                const previewDocument = previewFrame.contentWindow.document;
+                previewDocument.open();
+                previewDocument.write(`
+                  <html>
+                    <head>
+                        <style>
+                            /* Stiluri pentru a centra conținutul în iframe */
+                            body { 
+                                display: flex; 
+                                justify-content: center; 
+                                align-items: center; 
+                                height: 100%; 
+                                margin: 0; 
+                                padding: 20px; 
+                                box-sizing: border-box; 
+                                font-family: sans-serif;
+                            }
+                            ${css}
+                        </style>
+                    </head>
+                    <body>
+                        ${html}
+                    </body>
+                  </html>
+                `);
+                previewDocument.close();
+
+            } catch (error) {
+                console.error('A apărut o eroare:', error);
+                alert('Ne pare rău, a apărut o eroare la generarea componentei. Verifică consola pentru detalii.');
+            } finally {
+                // Ascunde spinner-ul și reactivează butonul
+                loadingSpinner.style.display = 'none';
+                generateBtn.disabled = false;
+                generateBtn.textContent = 'Generează Componenta';
+            }
         });
     }
-
 });

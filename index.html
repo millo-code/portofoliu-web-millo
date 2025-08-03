@@ -1,531 +1,66 @@
 <!DOCTYPE html>
-<html lang="ro" class="scroll-smooth">
+<html lang="ro">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Millo Code - Dezvoltare Web & Soluții AI</title>
-    
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    
-    <!-- Google Fonts: Inter -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
-    
-    <!-- Lucide Icons CDN -->
-    <script src="https://unpkg.com/lucide@latest"></script>
-    
-    <!-- ScrollReveal CDN (pentru animații) -->
-    <script src="https://unpkg.com/scrollreveal"></script>
-
-    <!-- Fișierul tău CSS personalizat -->
+    <title>MilloCode - Freelancer Web Development</title>
     <link rel="stylesheet" href="style.css">
-</head>
-<body class="gradient-bg">
+    </head>
+<body>
 
-    <!-- ========== HEADER & NAVIGATION ========== -->
-    <header class="bg-black/50 backdrop-blur-sm fixed top-0 left-0 right-0 z-50">
-        <div class="container mx-auto px-4">
-            <nav class="flex justify-between items-center py-3">
-                <!-- LOGO MODIFICAT -->
-                <a href="#" class="flex flex-col items-start leading-none">
-                    <span class="text-2xl font-bold tracking-tighter text-white">Millo<span class="text-emerald-400">Code</span>.</span>
-                    <span class="text-xs text-neutral-400 tracking-widest uppercase -mt-1">Freelancer</span>
-                </a>
-                <div class="hidden md:flex items-center space-x-8">
-                    <a href="#servicii" class="text-neutral-300 hover:text-white transition-colors">Servicii</a>
-                    <a href="#portofoliu" class="text-neutral-300 hover:text-white transition-colors">Portofoliu</a>
-                    <a href="#despre" class="text-neutral-300 hover:text-white transition-colors">Despre</a>
-                </div>
-                <div class="flex items-center space-x-4">
-                     <a href="#contact" class="hidden md:inline-block bg-emerald-500 text-black font-semibold px-5 py-2 rounded-md hover:bg-emerald-400 transition-all">Contactează-mă</a>
-                     <button id="mobile-menu-button" class="md:hidden p-2 rounded-md text-neutral-300 hover:bg-neutral-800">
-                        <i data-lucide="menu"></i>
-                    </button>
-                </div>
-            </nav>
-        </div>
-        <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden md:hidden bg-neutral-900">
-            <a href="#servicii" class="block py-3 px-4 text-center text-neutral-300 hover:bg-neutral-800">Servicii</a>
-            <a href="#portofoliu" class="block py-3 px-4 text-center text-neutral-300 hover:bg-neutral-800">Portofoliu</a>
-            <a href="#despre" class="block py-3 px-4 text-center text-neutral-300 hover:bg-neutral-800">Despre</a>
-            <a href="#contact" class="block py-4 px-4 text-center bg-emerald-500 text-black font-semibold">Contactează-mă</a>
-        </div>
+    <header>
+        <nav class="navbar">
+            <a href="#" class="nav-branding">MilloCode.</a>
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="#despre" class="nav-link">Despre</a></li>
+                <li class="nav-item"><a href="#portofoliu" class="nav-link">Portofoliu</a></li>
+                <li class="nav-item"><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </nav>
     </header>
 
-    <main class="pt-24">
-        <!-- ========== HERO SECTION ========== -->
-        <section id="home" class="py-20 md:py-32">
-            <div class="container mx-auto px-4 text-center">
-                <h1 class="reveal text-4xl md:text-6xl lg:text-7xl font-black tracking-tighter mb-4 leading-tight">
-                    Creăm Experiențe Digitale <span class="text-emerald-400">Moderne</span>.
-                </h1>
-                <p class="reveal max-w-3xl mx-auto text-lg md:text-xl text-neutral-400 mb-8">
-                    De la site-uri web performante la integrări AI și design grafic de impact. Transformăm ideile tale în realitate digitală.
-                </p>
-                <div class="reveal flex justify-center items-center gap-4 flex-wrap">
-                    <a href="#portofoliu" class="bg-emerald-500 text-black font-semibold px-8 py-3 rounded-md hover:bg-emerald-400 transition-all text-lg">Vezi Proiectele</a>
-                    <a href="#servicii" class="bg-neutral-800 text-white font-semibold px-8 py-3 rounded-md hover:bg-neutral-700 transition-all text-lg">Serviciile Mele</a>
-                </div>
-            </div>
+    <main>
+        <section id="hero" style="padding: 100px 20px; text-align: center;">
+            <h1>Bine ai venit pe site-ul meu!</h1>
+            <p>Conținutul tău principal vine aici.</p>
         </section>
 
-        <!-- ========== SERVICES SECTION ========== -->
-        <section id="servicii" class="py-20">
-            <div class="container mx-auto px-4">
-                <div class="text-center mb-12">
-                    <h2 class="reveal text-3xl md:text-4xl font-bold tracking-tight">Ce pot face pentru tine</h2>
-                    <p class="reveal text-neutral-400 mt-2 max-w-2xl mx-auto">Ofer o gamă de servicii pentru a-ți aduce proiectul la viață, cu focus pe tehnologie modernă și rezultate concrete.</p>
+        <section id="ai-demo" class="ai-demo">
+            <h2>Demonstrație AI Interactivă</h2>
+            <p>Descrie o componentă web și vezi cum prinde viață instantaneu!</p>
+            
+            <div class="demo-container">
+                <div class="input-area">
+                    <textarea id="component-description" placeholder="Ex: un card cu o imagine sus, un titlu și un paragraf de text"></textarea>
+                    <button id="generate-btn">Generează Componenta</button>
+                    <div id="loading-spinner" style="display:none;">Se generează...</div>
                 </div>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <!-- Service Card 1: Frontend Development -->
-                    <div class="reveal bg-neutral-900/50 border border-neutral-800 p-8 rounded-xl shadow-lg hover:border-emerald-500 transition-all">
-                        <div class="bg-emerald-500/10 inline-block p-3 rounded-lg mb-4">
-                            <i data-lucide="code-xml" class="text-emerald-400"></i>
-                        </div>
-                        <h3 class="text-xl font-bold mb-2">Dezvoltare Frontend</h3>
-                        <p class="text-neutral-400">Construiesc interfețe web rapide, responsive și intuitive folosind tehnologii de top precum React, Vue și Tailwind CSS.</p>
-                    </div>
-                    <!-- Service Card 2: AI Integration -->
-                    <div class="reveal bg-neutral-900/50 border border-neutral-800 p-8 rounded-xl shadow-lg hover:border-emerald-500 transition-all">
-                        <div class="bg-emerald-500/10 inline-block p-3 rounded-lg mb-4">
-                            <i data-lucide="brain-circuit" class="text-emerald-400"></i>
-                        </div>
-                        <h3 class="text-xl font-bold mb-2">Integrare AI & Automatizări</h3>
-                        <p class="text-neutral-400">Implementez soluții AI pentru a-ți optimiza afacerea: de la chatbot-uri inteligente la automatizarea proceselor repetitive.</p>
-                    </div>
-                    <!-- Service Card 3: Graphic Design -->
-                    <div class="reveal bg-neutral-900/50 border border-neutral-800 p-8 rounded-xl shadow-lg hover:border-emerald-500 transition-all">
-                        <div class="bg-emerald-500/10 inline-block p-3 rounded-lg mb-4">
-                            <i data-lucide="palette" class="text-emerald-400"></i>
-                        </div>
-                        <h3 class="text-xl font-bold mb-2">Design Grafic & UI/UX</h3>
-                        <p class="text-neutral-400">Creez identități vizuale memorabile, de la logo-uri și materiale de branding, la design de interfață (UI/UX) focusat pe utilizator.</p>
+                
+                <div class="preview-area">
+                    <h3>Previzualizare Live</h3>
+                    <div class="preview-box">
+                        <iframe id="preview-iframe"></iframe>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- ========== PORTFOLIO SECTION ========== -->
-        <section id="portofoliu" class="py-20 bg-neutral-900/60">
-            <div class="container mx-auto px-4">
-                <div class="text-center mb-12">
-                    <h2 class="reveal text-3xl md:text-4xl font-bold tracking-tight">Proiecte Recente</h2>
-                    <p class="reveal text-neutral-400 mt-2 max-w-2xl mx-auto">Aici poți vedea câteva exemple din munca mea. Fiecare proiect este o poveste de succes.</p>
-                </div>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <!-- Portfolio Item 1 -->
-                    <div class="reveal bg-neutral-800 rounded-xl overflow-hidden group">
-                        <img src="https://placehold.co/600x400/0a0a0a/10b981?text=Proiect+E-commerce" alt="Imagine proiect e-commerce" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300">
-                        <div class="p-6">
-                            <h3 class="text-xl font-bold mb-2">Platformă E-commerce</h3>
-                            <p class="text-neutral-400 mb-4 text-sm">Soluție completă pentru un magazin online, cu design modern și administrare simplă.</p>
-                            <div class="flex flex-wrap gap-2">
-                                <span class="bg-emerald-500/20 text-emerald-300 text-xs font-semibold px-2.5 py-1 rounded-full">React</span>
-                                <span class="bg-emerald-500/20 text-emerald-300 text-xs font-semibold px-2.5 py-1 rounded-full">Node.js</span>
-                                <span class="bg-emerald-500/20 text-emerald-300 text-xs font-semibold px-2.5 py-1 rounded-full">UI/UX</span>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Portfolio Item 2 -->
-                    <div class="reveal bg-neutral-800 rounded-xl overflow-hidden group">
-                        <img src="https://placehold.co/600x400/0a0a0a/3b82f6?text=Aplicație+Web" alt="Imagine aplicație web" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300">
-                        <div class="p-6">
-                            <h3 class="text-xl font-bold mb-2">Aplicație Web (SaaS)</h3>
-                            <p class="text-neutral-400 mb-4 text-sm">Dezvoltarea unei aplicații de tip Software-as-a-Service pentru management de proiecte.</p>
-                            <div class="flex flex-wrap gap-2">
-                                <span class="bg-blue-500/20 text-blue-300 text-xs font-semibold px-2.5 py-1 rounded-full">Vue.js</span>
-                                <span class="bg-blue-500/20 text-blue-300 text-xs font-semibold px-2.5 py-1 rounded-full">Firebase</span>
-                                <span class="bg-blue-500/20 text-blue-300 text-xs font-semibold px-2.5 py-1 rounded-full">AI Chat</span>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Portfolio Item 3 -->
-                    <div class="reveal bg-neutral-800 rounded-xl overflow-hidden group">
-                        <img src="https://placehold.co/600x400/0a0a0a/8b5cf6?text=Branding" alt="Imagine proiect branding" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300">
-                        <div class="p-6">
-                            <h3 class="text-xl font-bold mb-2">Branding Corporativ</h3>
-                            <p class="text-neutral-400 mb-4 text-sm">Crearea unei identități vizuale complete pentru un startup din domeniul tech.</p>
-                            <div class="flex flex-wrap gap-2">
-                                <span class="bg-violet-500/20 text-violet-300 text-xs font-semibold px-2.5 py-1 rounded-full">Logo Design</span>
-                                <span class="bg-violet-500/20 text-violet-300 text-xs font-semibold px-2.5 py-1 rounded-full">Photoshop</span>
-                                <span class="bg-violet-500/20 text-violet-300 text-xs font-semibold px-2.5 py-1 rounded-full">Figma</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <section id="contact" style="padding: 100px 20px; text-align: center;">
+            <h2>Ai un proiect în minte?</h2>
+            <p>Formularul tău de contact vine aici.</p>
         </section>
-
-        <!-- ========== ABOUT ME SECTION ========== -->
-        <section id="despre" class="py-20">
-            <div class="container mx-auto px-4">
-                <div class="grid grid-cols-1 md:grid-cols-5 gap-8 md:gap-12 items-center">
-                    <div class="reveal md:col-span-2">
-                        <!-- IMAGINE ACTUALIZATĂ -->
-                        <img src="background.webp" alt="O fotografie cu mine" class="rounded-full w-48 h-48 md:w-full md:h-auto object-cover mx-auto md:rounded-xl shadow-lg">
-                    </div>
-                    <div class="reveal md:col-span-3 text-center md:text-left">
-                        <h2 class="text-3xl md:text-4xl font-bold tracking-tight mb-4">Salut, sunt Millo.</h2>
-                        <p class="text-neutral-400 text-lg mb-4">
-                            Sunt un dezvoltator freelancer pasionat de tehnologie și design. Îmi place să construiesc lucruri care nu doar arată bine, ci și funcționează impecabil, aducând valoare reală clienților mei.
-                        </p>
-                        <p class="text-neutral-400 text-lg">
-                            Cred într-o comunicare deschisă și o colaborare strânsă pentru a ne asigura că viziunea ta devine realitate. Hai să creăm ceva extraordinar împreună!
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- ========== CONTACT & FEEDBACK FORM SECTION ========== -->
-        <section id="contact" class="py-20 bg-neutral-900/60">
-            <div class="container mx-auto px-4">
-                <div class="text-center mb-12">
-                    <h2 class="reveal text-3xl md:text-4xl font-bold tracking-tight">Ai un proiect în minte?</h2>
-                    <p class="reveal text-neutral-400 mt-2 max-w-2xl mx-auto">Completează formularul de mai jos sau scrie-mi un e-mail. Abia aștept să colaborăm!</p>
-                </div>
-
-                <div class="max-w-xl mx-auto">
-                    <form id="contact-form" class="reveal space-y-6">
-                        <div>
-                            <label for="name" class="block text-sm font-medium text-neutral-300">Nume</label>
-                            <div class="mt-1">
-                                <input type="text" name="name" id="name" required class="w-full bg-neutral-800 border border-neutral-700 rounded-md shadow-sm py-3 px-4 text-white focus:outline-none focus:ring-2 focus:ring-emerald-500">
-                            </div>
-                        </div>
-                        <div>
-                            <label for="email" class="block text-sm font-medium text-neutral-300">Email</label>
-                            <div class="mt-1">
-                                <input type="email" name="email" id="email" required class="w-full bg-neutral-800 border border-neutral-700 rounded-md shadow-sm py-3 px-4 text-white focus:outline-none focus:ring-2 focus:ring-emerald-500">
-                            </div>
-                        </div>
-                        <div>
-                            <label for="message" class="block text-sm font-medium text-neutral-300">Mesaj</label>
-                            <div class="mt-1">
-                                <textarea id="message" name="message" rows="4" required class="w-full bg-neutral-800 border border-neutral-700 rounded-md shadow-sm py-3 px-4 text-white focus:outline-none focus:ring-2 focus:ring-emerald-500"></textarea>
-                            </div>
-                        </div>
-                        <div>
-                            <button type="submit" class="w-full flex justify-center py-3 px-4 border border-transparent rounded-md shadow-sm text-lg font-bold text-black bg-emerald-500 hover:bg-emerald-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-neutral-900 focus:ring-emerald-500 transition-all">
-                                Trimite Mesajul
-                            </button>
-                        </div>
-                    </form>
-                    <!-- Mesaj de succes, inițial ascuns -->
-                    <div id="success-message" class="hidden mt-6 text-center bg-emerald-500/10 border border-emerald-500 text-emerald-300 px-4 py-3 rounded-md">
-                        <p>Mulțumesc! Mesajul tău a fost trimis cu succes. Voi reveni cu un răspuns în cel mai scurt timp.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
+        
     </main>
 
-    <!-- ========== FOOTER ========== -->
-    <footer class="bg-neutral-900">
-        <div class="container mx-auto px-4 py-6 text-center text-neutral-500">
-            <p>&copy; <span id="year"></span> MilloCode. Toate drepturile rezervate.</p>
-        </div>
+    <footer>
+        <p>&copy; 2025 MilloCode. Toate drepturile rezervate.</p>
     </footer>
 
-    <!-- Fișierul tău JavaScript -->
-    <!-- `defer` asigură că scriptul se execută după ce HTML-ul este complet încărcat -->
-    <script src="script.js" defer></script>
-</body>
-</html>
-
-<!DOCTYPE html>
-<html lang="ro" class="scroll-smooth">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Millo Code - Dezvoltare Web & Soluții AI</title>
-    
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    
-    <!-- Google Fonts: Inter -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
-    
-    <!-- Google Fonts: Orbitron (pentru logo si titluri) -->
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700&display=swap" rel="stylesheet">
-
-    <!-- Lucide Icons CDN -->
-    <script src="https://unpkg.com/lucide@latest"></script>
-    
-    <!-- ScrollReveal CDN (pentru animații) -->
-    <script src="https://unpkg.com/scrollreveal"></script>
-
-    <!-- Fișierul tău CSS personalizat -->
-    <link rel="stylesheet" href="style.css">
-</head>
-<body class="gradient-bg">
-
-    <!-- ========== HEADER & NAVIGATION ========== -->
-    <header class="bg-black/50 backdrop-blur-sm fixed top-0 left-0 right-0 z-50">
-        <div class="container mx-auto px-4">
-            <nav class="flex justify-between items-center py-3">
-                <!-- Noul LOGO SVG si TEXT animat -->
-                <a href="#" class="logo-group flex-shrink-0" id="logo-header">
-                    <div class="flex items-center space-x-2">
-                        <svg width="48" height="48" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <defs>
-                                <linearGradient id="neonGradientHeader" x1="0%" y1="0%" x2="100%" y2="100%">
-                                    <stop offset="0%" style="stop-color:#34d399;stop-opacity:1" />
-                                    <stop offset="100%" style="stop-color:#34d399;stop-opacity:1" />
-                                </linearGradient>
-                            </defs>
-                            <path d="M50 160 L50 40 L100 80 L100 120 L150 160 L150 40" stroke="url(#neonGradientHeader)" stroke-width="12" stroke-linecap="round" stroke-linejoin="round" class="animated-path" />
-                        </svg>
-                        <div class="flex flex-col items-start leading-none">
-                            <span class="text-2xl font-bold tracking-tighter logo-text-white">Millo<span class="text-emerald-400 font-orbitron">Code</span>.</span>
-                            <span class="text-xs text-neutral-400 tracking-widest uppercase -mt-1 font-inter">Freelancer</span>
-                        </div>
-                    </div>
-                </a>
-                <div class="hidden md:flex items-center space-x-8">
-                    <a href="#servicii" class="text-neutral-300 hover:text-white transition-colors">Servicii</a>
-                    <a href="#portofoliu" class="text-neutral-300 hover:text-white transition-colors">Portofoliu</a>
-                    <a href="#despre" class="text-neutral-300 hover:text-white transition-colors">Despre</a>
-                </div>
-                <div class="flex items-center space-x-4">
-                     <a href="#contact" class="hidden md:inline-block bg-emerald-500 text-black font-semibold px-5 py-2 rounded-md hover:bg-emerald-400 transition-all">Contactează-mă</a>
-                     <button id="mobile-menu-button" class="md:hidden p-2 rounded-md text-neutral-300 hover:bg-neutral-800">
-                        <i data-lucide="menu"></i>
-                    </button>
-                </div>
-            </nav>
-        </div>
-        <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden md:hidden bg-neutral-900">
-            <a href="#servicii" class="block py-3 px-4 text-center text-neutral-300 hover:bg-neutral-800">Servicii</a>
-            <a href="#portofoliu" class="block py-3 px-4 text-center text-neutral-300 hover:bg-neutral-800">Portofoliu</a>
-            <a href="#despre" class="block py-3 px-4 text-center text-neutral-300 hover:bg-neutral-800">Despre</a>
-            <a href="#contact" class="block py-4 px-4 text-center bg-emerald-500 text-black font-semibold">Contactează-mă</a>
-        </div>
-    </header>
-
-    <main class="pt-24">
-        <!-- ========== HERO SECTION ========== -->
-        <section id="home" class="py-20 md:py-32 flex items-center">
-            <div class="container mx-auto px-4 text-center">
-                <h1 class="reveal text-4xl md:text-6xl lg:text-7xl font-black tracking-tighter mb-4 leading-tight font-orbitron">
-                    Creăm Experiențe Digitale <span class="text-emerald-400">Moderne</span>.
-                </h1>
-                <p class="reveal max-w-3xl mx-auto text-lg md:text-xl text-neutral-400 mb-8 font-inter">
-                    De la site-uri web performante la integrări AI și design grafic de impact. Transformăm ideile tale în realitate digitală.
-                </p>
-                <div class="reveal flex justify-center items-center gap-4 flex-wrap">
-                    <a href="#portofoliu" class="bg-emerald-500 text-black font-semibold px-8 py-3 rounded-md hover:bg-emerald-400 transition-all text-lg">Vezi Proiectele</a>
-                    <a href="#servicii" class="bg-neutral-800 text-white font-semibold px-8 py-3 rounded-md hover:bg-neutral-700 transition-all text-lg">Serviciile Mele</a>
-                </div>
-            </div>
-        </section>
-
-        <!-- ========== SERVICES SECTION ========== -->
-        <section id="servicii" class="py-20">
-            <div class="container mx-auto px-4">
-                <div class="text-center mb-12">
-                    <h2 class="reveal text-3xl md:text-4xl font-bold tracking-tight font-orbitron">Ce pot face pentru tine</h2>
-                    <p class="reveal text-neutral-400 mt-2 max-w-2xl mx-auto font-inter">Ofer o gamă de servicii pentru a-ți aduce proiectul la viață, cu focus pe tehnologie modernă și rezultate concrete.</p>
-                </div>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <!-- Service Card 1: Frontend Development -->
-                    <div class="reveal bg-neutral-900/50 border border-neutral-800 p-8 rounded-xl shadow-lg hover:border-emerald-500 transition-all">
-                        <div class="bg-emerald-500/10 inline-block p-3 rounded-lg mb-4">
-                            <i data-lucide="code-xml" class="text-emerald-400"></i>
-                        </div>
-                        <h3 class="text-xl font-bold mb-2 font-orbitron">Dezvoltare Frontend</h3>
-                        <p class="text-neutral-400 font-inter">Construiesc interfețe web rapide, responsive și intuitive folosind tehnologii de top precum React, Vue și Tailwind CSS.</p>
-                    </div>
-                    <!-- Service Card 2: AI Integration -->
-                    <div class="reveal bg-neutral-900/50 border border-neutral-800 p-8 rounded-xl shadow-lg hover:border-emerald-500 transition-all">
-                        <div class="bg-emerald-500/10 inline-block p-3 rounded-lg mb-4">
-                            <i data-lucide="brain-circuit" class="text-emerald-400"></i>
-                        </div>
-                        <h3 class="text-xl font-bold mb-2 font-orbitron">Integrare AI & Automatizări</h3>
-                        <p class="text-neutral-400 font-inter">Implementez soluții AI pentru a-ți optimiza afacerea: de la chatbot-uri inteligente la automatizarea proceselor repetitive.</p>
-                    </div>
-                    <!-- Service Card 3: Graphic Design -->
-                    <div class="reveal bg-neutral-900/50 border border-neutral-800 p-8 rounded-xl shadow-lg hover:border-emerald-500 transition-all">
-                        <div class="bg-emerald-500/10 inline-block p-3 rounded-lg mb-4">
-                            <i data-lucide="palette" class="text-emerald-400"></i>
-                        </div>
-                        <h3 class="text-xl font-bold mb-2 font-orbitron">Design Grafic & UI/UX</h3>
-                        <p class="text-neutral-400 font-inter">Creez identități vizuale memorabile, de la logo-uri și materiale de branding, la design de interfață (UI/UX) focusat pe utilizator.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- ========== PORTFOLIO SECTION ========== -->
-        <section id="portofoliu" class="py-20 bg-neutral-900/60">
-            <div class="container mx-auto px-4">
-                <div class="text-center mb-12">
-                    <h2 class="reveal text-3xl md:text-4xl font-bold tracking-tight font-orbitron">Proiecte Recente</h2>
-                    <p class="reveal text-neutral-400 mt-2 max-w-2xl mx-auto font-inter">Aici poți vedea câteva exemple din munca mea. Fiecare proiect este o poveste de succes.</p>
-                </div>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <!-- Portfolio Item 1 -->
-                    <div class="reveal bg-neutral-800 rounded-xl overflow-hidden group">
-                        <img src="https://placehold.co/600x400/0a0a0a/10b981?text=Proiect+E-commerce" alt="Imagine proiect e-commerce" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300">
-                        <div class="p-6">
-                            <h3 class="text-xl font-bold mb-2 font-inter">Platformă E-commerce</h3>
-                            <p class="text-neutral-400 mb-4 text-sm font-inter">Soluție completă pentru un magazin online, cu design modern și administrare simplă.</p>
-                            <div class="flex flex-wrap gap-2">
-                                <span class="bg-emerald-500/20 text-emerald-300 text-xs font-semibold px-2.5 py-1 rounded-full font-inter">React</span>
-                                <span class="bg-emerald-500/20 text-emerald-300 text-xs font-semibold px-2.5 py-1 rounded-full font-inter">Node.js</span>
-                                <span class="bg-emerald-500/20 text-emerald-300 text-xs font-semibold px-2.5 py-1 rounded-full font-inter">UI/UX</span>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Portfolio Item 2 -->
-                    <div class="reveal bg-neutral-800 rounded-xl overflow-hidden group">
-                        <img src="https://placehold.co/600x400/0a0a0a/3b82f6?text=Aplicație+Web" alt="Imagine aplicație web" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300">
-                        <div class="p-6">
-                            <h3 class="text-xl font-bold mb-2 font-inter">Aplicație Web (SaaS)</h3>
-                            <p class="text-neutral-400 mb-4 text-sm font-inter">Dezvoltarea unei aplicații de tip Software-as-a-Service pentru management de proiecte.</p>
-                            <div class="flex flex-wrap gap-2">
-                                <span class="bg-blue-500/20 text-blue-300 text-xs font-semibold px-2.5 py-1 rounded-full font-inter">Vue.js</span>
-                                <span class="bg-blue-500/20 text-blue-300 text-xs font-semibold px-2.5 py-1 rounded-full font-inter">Firebase</span>
-                                <span class="bg-blue-500/20 text-blue-300 text-xs font-semibold px-2.5 py-1 rounded-full font-inter">AI Chat</span>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Portfolio Item 3 -->
-                    <div class="reveal bg-neutral-800 rounded-xl overflow-hidden group">
-                        <img src="https://placehold.co/600x400/0a0a0a/8b5cf6?text=Branding" alt="Imagine proiect branding" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300">
-                        <div class="p-6">
-                            <h3 class="text-xl font-bold mb-2 font-inter">Branding Corporativ</h3>
-                            <p class="text-neutral-400 mb-4 text-sm font-inter">Crearea unei identități vizuale complete pentru un startup din domeniul tech.</p>
-                            <div class="flex flex-wrap gap-2">
-                                <span class="bg-violet-500/20 text-violet-300 text-xs font-semibold px-2.5 py-1 rounded-full font-inter">Logo Design</span>
-                                <span class="bg-violet-500/20 text-violet-300 text-xs font-semibold px-2.5 py-1 rounded-full font-inter">Photoshop</span>
-                                <span class="bg-violet-500/20 text-violet-300 text-xs font-semibold px-2.5 py-1 rounded-full font-inter">Figma</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- ========== ABOUT ME SECTION ========== -->
-        <section id="despre" class="py-20">
-            <div class="container mx-auto px-4">
-                <div class="grid grid-cols-1 md:grid-cols-5 gap-8 md:gap-12 items-center">
-                    <div class="reveal md:col-span-2">
-                        <!-- IMAGINE ACTUALIZATĂ -->
-                        <img src="background.webp" alt="O fotografie cu mine" class="rounded-full w-48 h-48 md:w-full md:h-auto object-cover mx-auto md:rounded-xl shadow-lg">
-                    </div>
-                    <div class="reveal md:col-span-3 text-center md:text-left">
-                        <h2 class="text-3xl md:text-4xl font-bold tracking-tight mb-4 font-orbitron">Salut, sunt Millo.</h2>
-                        <p class="text-neutral-400 text-lg mb-4 font-inter">
-                            Sunt un dezvoltator freelancer pasionat de tehnologie și design. Îmi place să construiesc lucruri care nu doar arată bine, ci și funcționează impecabil, aducând valoare reală clienților mei.
-                        </p>
-                        <p class="text-neutral-400 text-lg font-inter">
-                            Cred într-o comunicare deschisă și o colaborare strânsă pentru a ne asigura că viziunea ta devine realitate. Hai să creăm ceva extraordinar împreună!
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </section>
-<section id="portfolio">
-            </section>
-
-        <section class="ai-demo">
-          <h2>Demonstrație AI Interactivă</h2>
-          <p>Descrie o componentă web și vezi cum prinde viață instantaneu!</p>
-          
-          <div class="demo-container">
-            </div>
-        </section>
-        <section id="contact">
-            </section>
-        <!-- ========== CONTACT & FEEDBACK FORM SECTION ========== -->
-        <section id="contact" class="py-20 bg-neutral-900/60">
-            <div class="container mx-auto px-4">
-                <div class="text-center mb-12">
-                    <h2 class="reveal text-3xl md:text-4xl font-bold tracking-tight font-orbitron">Ai un proiect în minte?</h2>
-                    <p class="reveal text-neutral-400 mt-2 max-w-2xl mx-auto font-inter">Completează formularul de mai jos sau scrie-mi un e-mail. Abia aștept să colaborăm!</p>
-                </div>
-
-                <div class="max-w-xl mx-auto">
-                    <form id="contact-form" class="reveal space-y-6">
-                        <div>
-                            <label for="name" class="block text-sm font-medium text-neutral-300 font-inter">Nume</label>
-                            <div class="mt-1">
-                                <input type="text" name="name" id="name" required class="w-full bg-neutral-800 border border-neutral-700 rounded-md shadow-sm py-3 px-4 text-white focus:outline-none focus:ring-2 focus:ring-emerald-500">
-                            </div>
-                        </div>
-                        <div>
-                            <label for="email" class="block text-sm font-medium text-neutral-300 font-inter">Email</label>
-                            <div class="mt-1">
-                                <input type="email" name="email" id="email" required class="w-full bg-neutral-800 border border-neutral-700 rounded-md shadow-sm py-3 px-4 text-white focus:outline-none focus:ring-2 focus:ring-emerald-500">
-                            </div>
-                        </div>
-                        <div>
-                            <label for="message" class="block text-sm font-medium text-neutral-300 font-inter">Mesaj</label>
-                            <div class="mt-1">
-                                <textarea id="message" name="message" rows="4" required class="w-full bg-neutral-800 border border-neutral-700 rounded-md shadow-sm py-3 px-4 text-white focus:outline-none focus:ring-2 focus:ring-emerald-500"></textarea>
-                            </div>
-                        </div>
-                        <div>
-                            <button type="submit" class="w-full flex justify-center py-3 px-4 border border-transparent rounded-md shadow-sm text-lg font-bold text-black bg-emerald-500 hover:bg-emerald-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-neutral-900 focus:ring-emerald-500 transition-all">
-                                Trimite Mesajul
-                            </button>
-                        </div>
-                    </form>
-                    <!-- Mesaj de succes, inițial ascuns -->
-                    <div id="success-message" class="hidden mt-6 text-center bg-emerald-500/10 border border-emerald-500 text-emerald-300 px-4 py-3 rounded-md font-inter">
-                        <p>Mulțumesc! Mesajul tău a fost trimis cu succes. Voi reveni cu un răspuns în cel mai scurt timp.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- ========== FOOTER ========== -->
-        <footer class="bg-neutral-900">
-            <div class="container mx-auto px-4 py-6 text-center text-neutral-500 font-inter">
-                <p>&copy; <span id="year"></span> MilloCode. Toate drepturile rezervate.</p>
-            </div>
-        </footer>
-
-        <!-- Fișierul tău JavaScript -->
-        <script src="script.js" defer></script>
-        <script>
-            // Script pentru a afisa si ascunde meniul de mobil
-            document.getElementById('mobile-menu-button').addEventListener('click', function() {
-                var menu = document.getElementById('mobile-menu');
-                menu.classList.toggle('hidden');
-            });
-            // Adauga anul curent la footer
-            document.getElementById('year').textContent = new Date().getFullYear();
-
-            // Adauga evenimentul de click pentru animatie pe logo
-            const logo = document.getElementById('logo-header');
-            const logoSvgPath = logo.querySelector('path');
-            let isAnimating = false;
-
-            logo.addEventListener('click', (e) => {
-                e.preventDefault();
-                if (!isAnimating) {
-                    isAnimating = true;
-                    // Reseteaza animatia de draw
-                    logoSvgPath.style.animation = 'none';
-                    logoSvgPath.offsetHeight; // Force reflow
-                    logoSvgPath.style.animation = null;
-                    logoSvgPath.classList.add('animated-path');
-                    // Scoate clasa de animatie dupa ce s-a terminat
-                    logoSvgPath.addEventListener('animationend', () => {
-                        logoSvgPath.classList.remove('animated-path');
-                        isAnimating = false;
-                    }, { once: true });
-                }
-            });
-        </script>
+    <script src="script.js"></script>
 </body>
 </html>

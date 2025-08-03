@@ -1,64 +1,77 @@
-document.addEventListener('DOMContentLoaded', () => {
-  const loaderWrapper = document.getElementById('loader-wrapper');
-  const body = document.body;
+// Așteaptă ca întregul document să fie gata
+document.addEventListener('DOMContentLoaded', function() {
 
-  // Încărcare pagină
-  window.addEventListener('load', () => {
-    loaderWrapper.style.opacity = '0';
-    setTimeout(() => {
-      loaderWrapper.style.display = 'none';
-      body.classList.remove('no-scroll');
-    }, 500);
-  });
-
-  // Funcționalitate pentru meniul de mobil (hamburger)
-  const hamburger = document.getElementById('hamburger');
-  const menu = document.getElementById('menu');
-
-  if (hamburger && menu) {
-    hamburger.addEventListener('click', () => {
-      menu.classList.toggle('active');
-    });
-
-    // Ascunde meniul după ce se dă click pe un link
-    menu.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', () => {
-        menu.classList.remove('active');
-      });
-    });
-  }
-
-  // Observers pentru animațiile la scroll
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-      }
-    });
-  }, { threshold: 0.1 });
-
-  document.querySelectorAll('.hidden').forEach(el => {
-    observer.observe(el);
-  });
-
-  // Comutator pentru modul întunecat
-  const themeSwitch = document.getElementById('theme-switch');
-  if (themeSwitch) {
-    themeSwitch.addEventListener('change', () => {
-      if (themeSwitch.checked) {
-        body.classList.add('dark-mode');
-        localStorage.setItem('theme', 'dark');
-      } else {
-        body.classList.remove('dark-mode');
-        localStorage.setItem('theme', 'light');
-      }
-    });
-
-    // Verifică tema salvată la încărcarea paginii
-    const savedTheme = localStorage.getItem('theme');
-    if (savedTheme === 'dark') {
-      themeSwitch.checked = true;
-      body.classList.add('dark-mode');
+    // Initializarea iconițelor Lucide
+    // Asigură-te că `lucide` este disponibil global (din CDN)
+    if (typeof lucide !== 'undefined') {
+        lucide.createIcons();
     }
-  }
+
+    // --- SCRIPT PENTRU MENIUL MOBIL ---
+    const mobileMenuButton = document.getElementById('mobile-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    if (mobileMenuButton && mobileMenu) {
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // Închide meniul mobil la click pe un link din interior
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+    }
+
+
+    // --- SETAREA ANULUI CURENT ÎN FOOTER ---
+    const yearSpan = document.getElementById('year');
+    if (yearSpan) {
+        yearSpan.textContent = new Date().getFullYear();
+    }
+
+
+    // --- SCRIPT PENTRU ANIMAȚII (ScrollReveal) ---
+    // Asigură-te că `ScrollReveal` este disponibil global (din CDN)
+    if (typeof ScrollReveal !== 'undefined') {
+        const sr = ScrollReveal({
+            origin: 'bottom',
+            distance: '60px',
+            duration: 1000,
+            delay: 200,
+            reset: false, // Animațiile se execută o singură dată
+        });
+
+        // Aplicarea animațiilor pe elemente
+        sr.reveal('.reveal');
+    }
+
+
+    // --- SCRIPT PENTRU FORMULARUL DE CONTACT ---
+    const contactForm = document.getElementById('contact-form');
+    const successMessage = document.getElementById('success-message');
+
+    if (contactForm && successMessage) {
+        contactForm.addEventListener('submit', function(event) {
+            // Prevenim trimiterea reală a formularului
+            event.preventDefault();
+            
+            // IMPORTANT: Aici se adaugă logica de trimitere a e-mailului
+            // folosind un serviciu precum Netlify Forms, Formspree, sau un backend propriu.
+            // Pentru demonstrație, vom afișa doar mesajul de succes.
+
+            // Ascundem formularul și afișăm mesajul de succes
+            contactForm.classList.add('hidden');
+            successMessage.classList.remove('hidden');
+
+            // Optional: Resetează formularul după un timp
+            setTimeout(() => {
+                contactForm.reset();
+                contactForm.classList.remove('hidden');
+                successMessage.classList.add('hidden');
+            }, 6000); // Mesajul dispare și formularul reapare după 6 secunde
+        });
+    }
+
 });

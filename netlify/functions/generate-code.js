@@ -22,7 +22,9 @@ exports.handler = async function (event, context) {
     console.log("Pasul 2: Am primit descrierea:", description);
 
     const genAI = new GoogleGenerativeAI(apiKey);
-    const model = genAI.getGenerativeModel({ model: "gemini-pro" });
+    // ============== MODIFICAREA ESTE AICI ==============
+    const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash-latest" });
+    // ===================================================
     
     const prompt = `
       As a senior front-end developer, your task is to translate the following user description into clean, modern HTML and CSS code.

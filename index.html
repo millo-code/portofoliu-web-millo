@@ -3,17 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MilloCode - Freelancer Web Development</title>
+    <title>MilloCode - Freelancer Web Developer & Soluții AI</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    
     <link rel="stylesheet" href="style.css">
-    </head>
+</head>
 <body>
 
     <header>
         <nav class="navbar">
-            <a href="#" class="nav-branding">MilloCode.</a>
+            <a href="#hero" class="nav-branding">MilloCode.</a>
             <ul class="nav-menu">
                 <li class="nav-item"><a href="#despre" class="nav-link">Despre</a></li>
-                <li class="nav-item"><a href="#portofoliu" class="nav-link">Portofoliu</a></li>
+                <li class="nav-item"><a href="#servicii" class="nav-link">Servicii</a></li>
+                <li class="nav-item"><a href="#ai-demo" class="nav-link">Demo AI</a></li>
                 <li class="nav-item"><a href="#contact" class="nav-link">Contact</a></li>
             </ul>
             <div class="hamburger">
@@ -25,36 +31,69 @@
     </header>
 
     <main>
-        <section id="hero" style="padding: 100px 20px; text-align: center;">
-            <h1>Bine ai venit pe site-ul meu!</h1>
-            <p>Conținutul tău principal vine aici.</p>
+        <section id="hero" class="hero-section">
+            <div class="container">
+                <h1>Dezvoltator Web & Soluții AI Creative</h1>
+                <p class="subtitle">Transformăm ideile tale în realitate digitală. De la site-uri de prezentare la integrări AI complexe.</p>
+                <a href="#contact" class="cta-button">Contactează-mă</a>
+            </div>
         </section>
 
-        <section id="ai-demo" class="ai-demo">
-            <h2>Demonstrație AI Interactivă</h2>
-            <p>Descrie o componentă web și vezi cum prinde viață instantaneu!</p>
-            
-            <div class="demo-container">
-                <div class="input-area">
-                    <textarea id="component-description" placeholder="Ex: un card cu o imagine sus, un titlu și un paragraf de text"></textarea>
-                    <button id="generate-btn">Generează Componenta</button>
-                    <div id="loading-spinner" style="display:none;">Se generează...</div>
-                </div>
-                
-                <div class="preview-area">
-                    <h3>Previzualizare Live</h3>
-                    <div class="preview-box">
-                        <iframe id="preview-iframe"></iframe>
+        <section id="despre" class="content-section">
+            <div class="container">
+                <h2>Salut, sunt Marius.</h2>
+                <p>Sunt un dezvoltator web pasionat, specializat în crearea de site-uri web performante și intuitive. Cred într-o comunicare deschisă și o colaborare strânsă pentru a ne asigura că viziunea ta devine realitate. Hai să creăm ceva extraordinar împreună!</p>
+            </div>
+        </section>
+        
+        <section id="servicii" class="content-section-dark">
+            <div class="container">
+                <h2>Servicii Oferite</h2>
+                <div class="services-grid">
+                    <div class="service-card">
+                        <h3>Web Design & Development</h3>
+                        <p>Creare de site-uri web de la zero, de la design la implementare, optimizate pentru mobil și viteza.</p>
+                    </div>
+                    <div class="service-card">
+                        <h3>Optimizare SEO</h3>
+                        <p>Îmbunătățirea vizibilității site-ului tău în motoarele de căutare pentru a atrage mai mulți clienți.</p>
+                    </div>
+                    <div class="service-card">
+                        <h3>Integrări AI</h3>
+                        <p>Implementarea de soluții bazate pe inteligență artificială pentru a automatiza procese sau a crea experiențe unice.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="contact" style="padding: 100px 20px; text-align: center;">
-            <h2>Ai un proiect în minte?</h2>
-            <p>Formularul tău de contact vine aici.</p>
+        <section id="ai-demo" class="ai-demo">
+            <div class="container">
+                <h2>Demonstrație AI Interactivă</h2>
+                <p>Descrie o componentă web și vezi cum prinde viață instantaneu!</p>
+                <div class="demo-container">
+                    <div class="input-area">
+                        <h3>Descrierea ta:</h3>
+                        <textarea id="component-description" placeholder="Ex: un buton albastru cu colțuri rotunjite care devine verde la hover"></textarea>
+                        <button id="generate-btn">Generează Componenta</button>
+                        <div id="loading-spinner" style="display:none;">Se generează...</div>
+                    </div>
+                    <div class="preview-area">
+                        <h3>Previzualizare Live:</h3>
+                        <div class="preview-box">
+                            <iframe id="preview-iframe"></iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </section>
-        
+
+        <section id="contact" class="content-section-dark">
+            <div class="container">
+                <h2>Ai un proiect în minte?</h2>
+                <p>Completează formularul de mai jos sau scrie-mi un e-mail. Abia aștept să colaborăm!</p>
+                <a href="mailto:emailul.tau@exemplu.com" class="cta-button">Scrie-mi un E-mail</a>
+            </div>
+        </section>
     </main>
 
     <footer>

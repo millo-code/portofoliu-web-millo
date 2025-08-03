@@ -1,4 +1,3 @@
-// Așteaptă ca întregul document să fie gata înainte de a rula orice cod
 document.addEventListener('DOMContentLoaded', () => {
 
     // --- LOGICA PENTRU MENIUL MOBIL (HAMBURGER) ---
@@ -43,28 +42,18 @@ document.addEventListener('DOMContentLoaded', () => {
                 });
 
                 if (!response.ok) {
-                    // Dacă serverul dă o eroare (ex: 500), o prindem aici
                     const errorData = await response.json();
                     throw new Error(errorData.error || `Eroare de la server: ${response.statusText}`);
                 }
                 
-                // ============= MODIFICARE IMPORTANTĂ AICI =============
-                // 1. Luăm răspunsul ca text simplu
                 let responseText = await response.text();
-                console.log("Răspuns brut de la server:", responseText); // Pentru debug
-
-                // 2. Curățăm textul de posibile caractere extra (markdown etc.)
-                // Găsim primul '{' și ultimul '}' pentru a extrage doar JSON-ul
                 const firstBracket = responseText.indexOf('{');
                 const lastBracket = responseText.lastIndexOf('}');
                 if (firstBracket !== -1 && lastBracket !== -1) {
                     responseText = responseText.substring(firstBracket, lastBracket + 1);
                 }
 
-                // 3. Acum încercăm să-l parcurgem ca JSON
                 const data = JSON.parse(responseText);
-                // =======================================================
-
                 const { html, css } = data;
 
                 if (!html || !css) {

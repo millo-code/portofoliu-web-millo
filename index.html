@@ -98,8 +98,29 @@
         <section id="contact" class="content-section-dark section--hidden">
             <div class="container">
                 <h2>Ai un proiect în minte?</h2>
-                <p>Completează formularul de mai jos sau scrie-mi un e-mail. Abia aștept să colaborăm!</p>
-                <a href="mailto:emailul.tau@exemplu.com" class="cta-button">Scrie-mi un E-mail</a>
+                <p>Completează formularul de mai jos și hai să creăm ceva extraordinar împreună!</p>
+                
+                <form name="contact" method="POST" netlify>
+                    <input type="hidden" name="form-name" value="contact" />
+
+                    <div class="form-group">
+                        <label for="name">Numele tău:</label>
+                        <input type="text" id="name" name="name" required />
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email-ul tău:</label>
+                        <input type="email" id="email" name="email" required />
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">Mesajul tău:</label>
+                        <textarea id="message" name="message" required></textarea>
+                    </div>
+
+                    <button type="submit" class="cta-button">Trimite Mesajul</button>
+                </form>
+                
             </div>
         </section>
     </main>

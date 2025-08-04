@@ -249,4 +249,56 @@ footer { padding: 2rem; text-align: center; background: var(--dark-bg); color: v
   background-color: var(--primary-color); /* Culoarea cursorului (thumb) */
   border-radius: 10px;
   border: 2px solid #2a2a2a; /* Spațiere interioară, dacă e nevoie */
+
+}
+/* Stiluri generale */
+body { ... }
+.container { ... }
+
+/* Stiluri pentru antet (header) */
+.navbar { ... }
+.nav-menu { ... }
+
+/* Stiluri pentru secțiunea Hero */
+.hero-section { ... }
+.cta-button { ... }
+
+/* ... (restul stilurilor pentru celelalte secțiuni) ... */
+
+/* ---------------------------------------------------- */
+/* NOU: Stiluri pentru secțiunea de Contact și Formular */
+/* ---------------------------------------------------- */
+#contact {
+    /* Stiluri specifice pentru secțiunea de contact */
+}
+
+/* Stiluri pentru formular */
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box; 
+    background-color: #f8f8f8;
+    color: #333;
+    font-family: inherit;
+    font-size: 16px;
+}
+
+/* Poți adăuga aici alte stiluri, cum ar fi un focus state */
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: #007bff; /* Un border de culoare diferită la focus */
+    outline: none;
 }

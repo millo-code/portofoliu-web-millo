@@ -62,4 +62,27 @@ footer { padding: 2rem; text-align: center; background: var(--dark-bg); color: v
     h1 { font-size: 2.5rem; }
     h2 { font-size: 2rem; }
     .about-container { flex-direction: column; }
+}#component-description {
+  /* Restul stilurilor rămân la fel */
+  /* ... */
+
+  /* Stiluri pentru scrollbar */
+  scrollbar-width: thin; /* Pentru Firefox */
+  scrollbar-color: var(--primary-color) #2a2a2a; /* Culoare thumb & track pentru Firefox */
+}
+
+/* Stiluri pentru scrollbar în browsere bazate pe WebKit (Chrome, Safari, Edge) */
+#component-description::-webkit-scrollbar {
+  width: 8px; /* Lățimea scrollbar-ului */
+}
+
+#component-description::-webkit-scrollbar-track {
+  background: #2a2a2a; /* Culoarea fundalului (track) */
+  border-radius: 10px;
+}
+
+#component-description::-webkit-scrollbar-thumb {
+  background-color: var(--primary-color); /* Culoarea cursorului (thumb) */
+  border-radius: 10px;
+  border: 2px solid #2a2a2a; /* Spațiere interioară, dacă e nevoie */
 }
